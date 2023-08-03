@@ -1,2 +1,4 @@
-# static
-NOVEMBERIZING'S STATIC WEB SITE GENERATOR
+NOVEMBERIZING'S STATIC
+======================
+
+

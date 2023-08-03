@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>{{{ title }}}</title>
+        <meta content="{{{ description }}}" name="description">
+        <meta content="{{ keywords }}" name="keywords">
+        <!-- FAVICON -->
+        <link href="{{{ favicon }}}" rel="icon">
+        <!-- APPLE ICON -->
+        {{#apple}}
+        <link href="{{{ icon }}}" rel="apple-touch-icon">
+        {{/apple}}
+        <!-- TODO: 사용자 설정에서 구글 폰트를 선택할 수 있도록 한다. -->
+        <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=REM&display=swap" rel="stylesheet">
+        <!-- BOOTSTRAP CSS | https://getbootstrap.com/ -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <!-- BOOTSTRAP ICON | https://icons.getbootstrap.com/ -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <!-- AOS CSS | https://michalsnik.github.io/aos/  -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- SWIPERJS CSS | https://swiperjs.com/ -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+        <!-- TEMPLATE CSS FILE -->
+        <link href="assets/css/style.css" rel="stylesheet">
+    </head>
+    <body style="min-height: 100vh;">
+        {{#header}}
+        <!-- HEADER -->
+        <header id="header">
+            <div class="container d-flex align-items-center justify-content-between align-content-between">
+                <div class="logo">
+                    <h1><a href="index.html">{{ title }}{{#organization}}<sup class="organization">{{{ . }}}</sup>{{/organization}}</a></h1>
+                </div>
+                <nav id="navbar" class="navbar navbar-expand">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav">
+                            {{#github}}
+                            <li class="nav-item"><a class="nav-link" href="{{{ . }}}"><i class="fa-brands fa-github-alt" style="vertical-align: sub;"></i></a></li>
+                            {{/github}}
+                            {{#facebook}}
+                            <li class="nav-item"><a class="nav-link" href="{{{ . }}}"><i class="fa-brands fa-facebook-f" style="vertical-align: sub;"></i></a></li>
+                            {{/facebook}}
+                            {{#twitter}}
+                            <li class="nav-item"><a class="nav-link" href="{{{ . }}}"><i class="fa-brands fa-twitter" style="vertical-align: sub;"></i></a></li>
+                            {{/twitter}}
+                            {{#linkedin}}
+                            <li class="nav-item"><a class="nav-link" href="{{{ . }}}"><i class="fa-brands fa-linkedin-in" style="vertical-align: sub;"></i></a></li>
+                            {{/linkedin}}
+                            {{#buymeacoffee}}
+                            <li class="nav-item"><a class="nav-link"  href="{{{ . }}}"><i class="fa-solid fa-mug-hot" style="vertical-align: sub;"></i></a></li>
+                            {{/buymeacoffee}}
+                            <li class="nav-item novemberizing static link hide"><a class="nav-link"><i class="fa-solid fa-grip-lines-vertical" style="vertical-align: sub;"></i></a></li>
+                            <li class="nav-item hide novemberizing static link menu"><button type="button" class="nav-link btn btn-link"><i class="fa-solid fa-list" style="vertical-align: sub;"></i></a></li>
+                            <li class="nav-item hide novemberizing static link close"><button type="button" class="nav-link btn btn-link" onClick="novemberizing.static.close()"><i class="fa-solid fa-circle-xmark" style="vertical-align: sub;"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        {{/header}}
+        <!-- HEADER -->
+        {{#home}}
+        <!-- HOME -->
+        <section id="home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 pt-3 pt-lg-2 d-flex flex-column justify-content-top">
+                        <h1 data-aos="fade-up" data-aos-duration="1000">{{ title }}</h1>
+                        <h2 class="mb-4" data-aos="fade-up" data-aos-duration="1500">{{ description }}</h2>
+                        <div class="mt-3" data-aos="fade-up" data-aos-duration="2000">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    {{#items}}
+                                    <div class="swiper-slide">
+                                        <div class="card">
+                                            <img src="{{{ image }}}" class="card-img-top" alt="{{{ title }}}">
+                                            <div class="card-body p-2">
+                                                <h5 class="card-title text-truncate">
+                                                    {{#external}}
+                                                    <a href="{{{ link }}}">{{ title }}</a>
+                                                    {{/external}}
+                                                </h5>
+                                                <p class="card-text mb-1">{{ description }}</p>
+                                                {{#generate}}
+                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.gen('{{{ . }}}')">Generate</button>
+                                                {{/generate}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/items}}
+                                </div>
+                                <div class="swiper-pagination"></div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 home-img">
+                        <img src="assets/img/undraw_Visionary_technology_re_jfp7.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- HOME -->
+        {{/home}}
+        {{#main}}
+        <!-- MAIN -->
+        <main id="main">
+        </main>
+        <!-- MAIN -->
+        {{/main}}
+        {{#footer}}
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-6">
+                        <div class="description fw-bold">
+                            {{ description }}
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="link fw-bold">
+                            {{#buymeacoffee}}
+                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ . }}}');">Buy me a coffee</button>
+                            {{/buymeacoffee}}
+                            {{#github}}
+                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ . }}}');">Github</button>
+                            {{/github}}
+                            {{#license}}
+                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.modal.show();">License</button>
+                            {{/license}}
+                            {{#organization}}
+                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ link }}}');">{{{ title }}}</button>
+                            {{/organization}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {{/footer}}
+        <!-- End Footer -->
+        <!-- CUSTOMIZE ICON -->
+        <a href="#" id="novemberizing-bottom-btn" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <!--  -->
+        <!-- MODAL -->
+        {{#license}}
+        <div class="modal fade show novemberizing" id="novemberizing-modal" aria-hidden="true" aria-labelledby="novemberizing-modal-toggle-label" tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-center">
+                        <h1 class="modal-title fs-5" id="novemberizing-modal-toggle-label">LICENSE</h1>
+                    </div>
+                    <div class="modal-body d-flex" style="flex-direction: column; justify-content: center;">
+                        {{#items}}
+                        <div class="row">
+                            <div class="col text-center">
+                                <h4>
+                                    <a href="{{{ site.link }}}">{{{ site.name }}}</a>
+                                    <sup style="font-size: .5em;"><a href="{{{ license.link }}}">{{{ license.name }}}</a></sup>
+                                </h4>
+                            </div>
+                        </div>
+                        {{/items}}
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="button" class="btn btn-link" onClick="novemberizing.modal.hide();">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/license}}
+        {{#controller}}
+        <style>
+            /** static view */
+            .novemberizing.static.controller {
+                position: absolute;
+                top: 90px;
+                right: 50px;
+                width: 300px;
+                border: 1px solid #000000;
+                z-index: calc(var(--bs-modal-zindex) - 1);
+            }
+            .novemberizing.static.controller.hide {
+                display: none;
+            }
+
+            .novemberizing.static.controller
+            .novemberizing.static.controller.hide {
+                display: block;
+            }
+
+            /** novemberizing static link */
+            li.novemberizing.static.link.hide {
+                display: none;
+            }
+            li.novemberizing.static.link
+            li.novemberizing.static.link.show {
+                display: block;
+            }
+
+            /** novemberizing static controller */
+            iframe.novemberizing.static.view {
+                position: absolute;
+                top: 100px;
+                left: 0;
+                width: 100%;
+                /** TODO: BORDER BOTTOM SHADOW 적용 : DONE */
+                box-shadow: 0px 12px 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            iframe.novemberizing.static.view
+            iframe.novemberizing.static.view.show {
+                display: block;
+            }
+            iframe.novemberizing.static.view.hide {
+                display: none;
+            }
+        </style>
+        <div id="novemberizing-static-controller" class="novemberizing static controller hide"></div>
+        <iframe id="novemberizing-static-view" src="" class="novemberizing static view hide"></iframe>
+        <script>
+            async function novemberizingController() {
+                // 선언
+                let controller = {};
+                let container = document.getElementById('novemberizing-static-controller');
+                // 로드
+                const o = await fetch("Bear.default.json");
+                const config = await o.json();
+
+                // TODO: 현재는 인덱스 페이지만 작업한다. - 나중에는 모든 페이지에 대해서 작업하도록 한다.
+                const index = config["index.html"];
+                console.log(index);
+
+                let table = container.appendChild(document.createElement("table"));
+                table.className="table table-bordered";
+                let thead = table.appendChild(document.createElement("thead"));
+                let tr = thead.appendChild(document.createElement("tr"));
+
+                let td = tr.appendChild(document.createElement("td"));
+                td.setAttribute("scope", "col");
+                td.innerText = "key";
+                td.style.fontSize=".5em";
+                td.style.fontWeight="bold";
+
+                td = tr.appendChild(document.createElement("td"));
+                td.setAttribute("scope", "col");
+                td.innerText = "value";
+                td.style.fontWeight="bold";
+                td.style.fontSize=".5em";
+
+                let tbody = table.appendChild(document.createElement("tbody"));
+
+                const keys = Object.keys(index);
+                for(let i = 0; i < keys.length; i++) {
+                    tr = tbody.appendChild(document.createElement("tr"));
+
+                    td = tr.appendChild(document.createElement("td"));
+                    td.setAttribute("scope", "row");
+                    td.innerText = keys[i];
+                    td.style.fontSize=".5em";
+                    td.style.padding="4px 8px";
+
+                    td = tr.appendChild(document.createElement("td"));
+                    td.style.padding="0px";
+                    td.style.fontSize=".5em";
+                    let input = td.appendChild(document.createElement("input"));
+                    input.type="text";
+                    input.value=index[keys[i]];
+                    input.style.padding="4px 4px";
+                    input.style.fontSize=".5em";
+                    input.style.width="100%";
+                    input.style.height="100%";
+                    input.style.border="0 none #000000";
+
+                    input.style.whiteSpace= "nowrap";
+                    input.style.overflow= "hidden";
+                    input.style.textOverflow= "ellipsis";
+                    input.style.outline="none";
+
+                    input.addEventListener("change", e=> {
+                        console.log(e);
+                    });
+                    input.addEventListener("keyup", e=> {
+                        console.log(e);
+                    });
+                }
+
+            }
+            novemberizingController();
+        </script>
+        {{/controller}}
+        <!-- BOOTSTRAP JS | https://getbootstrap.com/ -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <!-- AOS JS | https://michalsnik.github.io/aos/ -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- FONTAWESOME JS | https://fontawesome.com/ -->
+        <script src="https://kit.fontawesome.com/1144ba9326.js" crossorigin="anonymous"></script>
+        <!-- SWIPERJS JS | https://swiperjs.com/ -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script>
+            AOS.init();
+
+            const swiper = new Swiper('.swiper', {
+                slidesPerView: 3,
+                speed: 1000,
+                spaceBetween: 10,
+                loopPreventsSliding: true,
+                slideToClickedSlide: true,
+                autoplay: {
+                    delay: 2000
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                }
+            });
+            function onResizeBody(e) {
+                const frame = document.getElementById("novemberizing-static-view");
+                const header = document.querySelector("header").getClientRects()[0].bottom;
+
+                frame.style.minHeight = `${novemberizing.document.height() - header}px`;
+            }
+            const novemberizing = {
+                show: (element) => {
+                    if(NodeList.prototype.isPrototypeOf(element)) {
+                        for(let i = 0; i < element.length; i++) {
+                            novemberizing.show(element[i]);
+                        }
+                        return;
+                    }
+                    if(typeof element === "string") element = document.getElementById(element);
+                    if(element.classList.contains("hide")) {
+                        element.classList.replace("hide", "show");
+                    } else {
+                        element.classList.add("show");
+                    }
+                },
+                hide: (element) => {
+                    if(NodeList.prototype.isPrototypeOf(element)) {
+                        for(let i = 0; i < element.length; i++) {
+                            novemberizing.hide(element[i]);
+                        }
+                        return;
+                    }
+                    if(typeof element === "string") element = document.getElementById(element);
+                    if(element.classList.contains("show")) {
+                        element.classList.replace("show", "hide");
+                    } else {
+                        element.classList.add("hide");
+                    }
+                },
+                /** {{#license}} */
+                modal: new bootstrap.Modal(document.getElementById('novemberizing-modal')),
+                /** {{/license}} */
+                /** {{^license}} */
+                modal: { show: () => (undefined) },
+                /** {{/license}} */
+                move: addr => (location.href = addr),
+                static: {
+                    onResizeBody: e => {
+                        const frame = document.getElementById("novemberizing-static-view");
+                        const section = document.querySelector("section");
+                        if(getComputedStyle(section).position === "fixed") {
+                            const header = document.querySelector("header");
+                            frame.style.minHeight = `${parseInt(section.getBoundingClientRect().height - header.getBoundingClientRect().height)}px`;
+                        } else {
+                            const footer = document.querySelector("footer");
+                            const button = document.getElementById("novemberizing-bottom-btn");
+                            frame.style.minHeight = `${parseInt(section.getBoundingClientRect().height + footer.getBoundingClientRect().height + button.getBoundingClientRect().height) + 24}px`;
+                        }
+                    },
+                    gen: (link) => {
+                        const frame = document.getElementById("novemberizing-static-view");
+                        const section = document.querySelector("section");
+                        if(getComputedStyle(section).position === "fixed") {
+                            const header = document.querySelector("header");
+                            frame.style.minHeight = `${parseInt(section.getBoundingClientRect().height - header.getBoundingClientRect().height)}px`;
+                        } else {
+                            const footer = document.querySelector("footer");
+                            const button = document.getElementById("novemberizing-bottom-btn");
+                            frame.style.minHeight = `${parseInt(section.getBoundingClientRect().height + footer.getBoundingClientRect().height + button.getBoundingClientRect().height) + 20}px`;
+                        }
+
+                        window.addEventListener("resize", novemberizing.static.onResizeBody);
+                        novemberizing.show(frame);
+                        novemberizing.show("novemberizing-static-controller");
+                        novemberizing.show(document.querySelectorAll(".nav-item.novemberizing.static.link"));
+                        // TODO: CONSOLE LINK 가 동작할 때, 문제를 삼는다.
+                        frame.src = 
+                        console.logI(link);
+                    },
+                    close: () => {
+                        novemberizing.hide('novemberizing-static-view');
+                        novemberizing.hide("novemberizing-static-controller");
+                        novemberizing.hide(document.querySelectorAll(".nav-item.novemberizing.static.link"));
+                        window.removeEventListener("resize", onResizeBody);
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+

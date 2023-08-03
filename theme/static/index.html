@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>{{{ title }}}</title>
+        <meta content="{{{ description }}}" name="description">
+        <meta content="{{ keywords }}" name="keywords">
+        <!-- FAVICON -->
+        <link href="{{{ favicon }}}" rel="icon">
+        <!-- APPLE ICON -->
+        {{#apple}}
+        <link href="{{{ icon }}}" rel="apple-touch-icon">
+        {{/apple}}
+        <!-- TODO: 사용자 설정에서 구글 폰트를 선택할 수 있도록 한다. -->
+        <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=REM&display=swap" rel="stylesheet">
+        <!-- BOOTSTRAP CSS | https://getbootstrap.com/ -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <!-- BOOTSTRAP ICON | https://icons.getbootstrap.com/ -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <!-- AOS CSS | https://michalsnik.github.io/aos/  -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- SWIPERJS CSS | https://swiperjs.com/ -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+        <!-- TEMPLATE CSS FILE -->
+        <link href="assets/css/style.css" rel="stylesheet">
+    </head>
+    <body style="min-height: 100vh;">
+        {{#header}}
+        <!-- HEADER -->
+        <header id="header">
+            <div class="container d-flex align-items-center justify-content-between align-content-between">
+                <div class="logo">
+                    <h1>
+                        <a href="index.html">{{ title }}</a>
+                        {{#organization}}<sup class="organization"><a href="{{{ link }}}">{{{ name }}}</a></sup>{{/organization}}
+                    </h1>
+                    
+                </div>
+                <nav id="navbar" class="navbar navbar-expand">
+                    <div class="container-fluid px-0 px-sm-3">
+                        <ul class="navbar-nav">
+                            {{#github}}
+                            <li class="nav-item"><a class="nav-link" href="{{{ . }}}"><i class="fa-brands fa-github-alt" style="vertical-align: sub;"></i></a></li>
+                            {{/github}}
+                            {{#facebook}}
+                            <li class="nav-item"><a class="nav-link" href="{{{ . }}}"><i class="fa-brands fa-facebook-f" style="vertical-align: sub;"></i></a></li>
+                            {{/facebook}}
+                            {{#twitter}}
+                            <li class="nav-item"><a class="nav-link" href="{{{ . }}}"><i class="fa-brands fa-twitter" style="vertical-align: sub;"></i></a></li>
+                            {{/twitter}}
+                            {{#linkedin}}
+                            <li class="nav-item"><a class="nav-link" href="{{{ . }}}"><i class="fa-brands fa-linkedin-in" style="vertical-align: sub;"></i></a></li>
+                            {{/linkedin}}
+                            {{#buymeacoffee}}
+                            <li class="nav-item"><a class="nav-link"  href="{{{ . }}}"><i class="fa-solid fa-mug-hot" style="vertical-align: sub;"></i></a></li>
+                            {{/buymeacoffee}}
+                            <li class="nav-item novemberizing static link hide"><a class="nav-link"><i class="fa-solid fa-grip-lines-vertical" style="vertical-align: sub;"></i></a></li>
+                            <li class="nav-item hide novemberizing static link menu"><button type="button" class="nav-link btn btn-link" onClick="novemberizing.show(document.getElementById('novemberizing-static-controller'))"><i class="fa-solid fa-list" style="vertical-align: sub;"></i></a></li>
+                            <li class="nav-item hide novemberizing static link close"><button type="button" class="nav-link btn btn-link" onClick="novemberizing.static.off()"><i class="fa-solid fa-circle-xmark" style="vertical-align: sub;"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        {{/header}}
+        <!-- HEADER -->
+        {{#home}}
+        <!-- HOME -->
+        <section id="home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 pt-3 pt-lg-2 d-flex flex-column justify-content-top">
+                        <h1 data-aos="fade-up" data-aos-duration="1000">{{ title }}</h1>
+                        <h2 class="mb-4" data-aos="fade-up" data-aos-duration="1500">{{ description }}</h2>
+                        <div class="mt-3" data-aos="fade-up" data-aos-duration="2000">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    {{#items}}
+                                    <div class="swiper-slide">
+                                        <div class="card">
+                                            <img src="{{{ image }}}" class="card-img-top" alt="{{{ title }}}">
+                                            <div class="card-body p-2">
+                                                <h5 class="card-title text-truncate">
+                                                    {{#external}}
+                                                    <a href="{{{ link }}}">{{ title }}</a>
+                                                    {{/external}}
+                                                </h5>
+                                                <p class="card-text mb-1">{{ description }}</p>
+                                                {{#generate}}
+                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.on('{{{ . }}}')">Generate</button>
+                                                {{/generate}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/items}}
+                                </div>
+                                <div class="swiper-pagination"></div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 home-img">
+                        <img src="assets/img/undraw_Visionary_technology_re_jfp7.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- HOME -->
+        {{/home}}
+        {{#main}}
+        <!-- MAIN -->
+        <main id="main">
+        </main>
+        <!-- MAIN -->
+        {{/main}}
+        {{#footer}}
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-6">
+                        <div class="description fw-bold">
+                            {{ description }}
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="link fw-bold">
+                            {{#buymeacoffee}}
+                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ . }}}');">Buy me a coffee</button>
+                            {{/buymeacoffee}}
+                            {{#github}}
+                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ . }}}');">Github</button>
+                            {{/github}}
+                            {{#license}}
+                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.modal.show();">License</button>
+                            {{/license}}
+                            {{#organization}}
+                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ link }}}');">{{{ title }}}</button>
+                            {{/organization}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {{/footer}}
+        <!-- End Footer -->
+        <!-- CUSTOMIZE ICON -->
+        <a href="#" id="novemberizing-bottom-btn" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <!--  -->
+        <!-- MODAL -->
+        {{#license}}
+        <div class="modal fade show novemberizing" id="novemberizing-modal" aria-hidden="true" aria-labelledby="novemberizing-modal-toggle-label" tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-center">
+                        <h1 class="modal-title fs-5" id="novemberizing-modal-toggle-label">LICENSE</h1>
+                    </div>
+                    <div class="modal-body d-flex" style="flex-direction: column; justify-content: center;">
+                        {{#items}}
+                        <div class="row">
+                            <div class="col text-center">
+                                <h4>
+                                    <a href="{{{ site.link }}}">{{{ site.name }}}</a>
+                                    <sup style="font-size: .5em;"><a href="{{{ license.link }}}">{{{ license.name }}}</a></sup>
+                                </h4>
+                            </div>
+                        </div>
+                        {{/items}}
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="button" class="btn btn-link" onClick="novemberizing.modal.hide();">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/license}}
+        {{#controller}}
+        <style>
+            :root {
+                --default-z-index: 100;
+            }
+            /** static view */
+            .novemberizing.static.controller.container {
+                position: fixed;
+                /* top: 120px; */
+                right: 50px;
+                width: 300px;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid #000000;
+                z-index: calc(var(--default-z-index) - 1);
+                opacity: .8;
+                background-color: #ffffff;
+                color: #808080;
+                border-radius: 5px;
+            }
+            .novemberizing.static.controller.container.hide {
+                display: none;
+            }
+
+            .novemberizing.static.controller.container
+            .novemberizing.static.controller.container.hide {
+                display: block;
+            }
+
+            .novemberizing.static.controller.container .row {
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .novemberizing.static.controller.container .row.show {
+                display: flex;
+            }
+
+            .novemberizing.static.controller.container .row.hide {
+                display: none;
+            }
+
+            .novemberizing.static.controller.container .row .col
+            .novemberizing.static.controller.container .row .col-4,
+            .novemberizing.static.controller.container .row .col-6,
+            .novemberizing.static.controller.container .row .col-8,
+            .novemberizing.static.controller.container .row .col-12 {
+                font-size: .8rem;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .novemberizing.static.controller.container .row .col button.btn-link
+            .novemberizing.static.controller.container .row .col-4 button.btn-link,
+            .novemberizing.static.controller.container .row .col-6 button.btn-link,
+            .novemberizing.static.controller.container .row .col-8 button.btn-link,
+            .novemberizing.static.controller.container .row .col-12 button.btn-link {
+                font-size: .8rem;
+                padding: 0px;
+                color: #222222;
+            }
+
+            .novemberizing.static.controller.container .row .col button.btn-link:hover
+            .novemberizing.static.controller.container .row .col-4 button.btn-link:hover,
+            .novemberizing.static.controller.container .row .col-6 button.btn-link:hover,
+            .novemberizing.static.controller.container .row .col-8 button.btn-link:hover,
+            .novemberizing.static.controller.container .row .col-12 button.btn-link:hover {
+                font-size: .8rem;
+                padding: 0px;
+                color: #222222;
+            }
+
+            .novemberizing.static.controller.container .row.title {
+                border-bottom: 1px solid #444444;
+            }
+
+            .novemberizing.static.controller.container .row.title .col
+            .novemberizing.static.controller.container .row.title .col-4,
+            .novemberizing.static.controller.container .row.title .col-6,
+            .novemberizing.static.controller.container .row.title .col-8,
+            .novemberizing.static.controller.container .row.title .col-12 {
+                font-weight: bold;
+                padding: 8px;
+                margin: 0px;
+            }
+
+            .novemberizing.static.controller.container .row.footer {
+                border-top: 1px solid #222222;
+            }
+
+            .novemberizing.static.controller.container .row.footer .col
+            .novemberizing.static.controller.container .row.footer .col-4,
+            .novemberizing.static.controller.container .row.footer .col-6,
+            .novemberizing.static.controller.container .row.footer .col-8,
+            .novemberizing.static.controller.container .row.footer .col-12 {
+                font-weight: bold;
+                padding: 8px;
+                margin: 0px;
+                text-align: right;
+            }
+
+            /** novemberizing static link */
+            li.novemberizing.static.link.hide {
+                display: none;
+            }
+            li.novemberizing.static.link
+            li.novemberizing.static.link.show {
+                display: block;
+            }
+
+            /** novemberizing static view */
+            iframe.novemberizing.static.view {
+                position: absolute;
+                overflow: hidden;
+                top: 100px;
+                left: 0;
+                width: 100%;
+                min-width: var(--default-min-width);
+                /** TODO: BORDER BOTTOM SHADOW 적용 : DONE */
+                box-shadow: 0px 12px 4px 12px rgba(0, 0, 0, 0.1);
+                z-index: calc(var(--default-z-index) - 2);
+            }
+
+            iframe.novemberizing.static.view
+            iframe.novemberizing.static.view.show {
+                display: block;
+            }
+            iframe.novemberizing.static.view.hide {
+                display: none;
+            }
+            /** form */
+            .dropdown.novemberizing.static.controller-dropdown {
+                font-size: .8rem;
+            }
+            .dropdown.novemberizing.static.controller-dropdown button {
+                border-radius: 0px;
+                font-size: .8rem;
+                padding: 0px;
+                width: 100%;
+                text-align: left;
+            }
+            .dropdown.novemberizing.static.controller-dropdown button.btn.btn-link {
+                color: #222222;
+            }
+            .dropdown.novemberizing.static.controller-dropdown button.btn.btn-link:hover {
+                color: #222222;
+            }
+            .dropdown.novemberizing.static.controller-dropdown ul {
+                border-radius: 0px;
+                width: 100%;
+                padding: 4px;
+                opacity: .9;
+            }
+            .dropdown.novemberizing.static.controller-dropdown  .dropdown-toggle::after {
+                position: absolute;
+                right: 5px;
+                top: 10px;
+            }
+            input.novemberizing.static.controller-input.form-control {
+                border-style: none;
+                border-width: 0px;
+                box-shadow: none;
+                border-radius: 0;
+                background-color: #FFFFFF00;
+                padding: 0px;
+                font-size: 1em;
+            }
+            input.novemberizing.static.controller-input.form-control:focus {
+                border-style: none;
+                border-width: 0px;
+                box-shadow: none;
+                border-radius: 0px;
+                padding: 0px;
+                font-size: 1em;
+            }
+        </style>
+        <div id="novemberizing-static-controller" class="novemberizing static controller container hide"></div>
+        <iframe id="novemberizing-static-view" frameborder="0" scrolling="no" src="" class="novemberizing static view hide" style="overflow: hidden;"></iframe>
+        {{/controller}}
+        <!-- BOOTSTRAP JS | https://getbootstrap.com/ -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <!-- AOS JS | https://michalsnik.github.io/aos/ -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- FONTAWESOME JS | https://fontawesome.com/ -->
+        <script src="https://kit.fontawesome.com/1144ba9326.js" crossorigin="anonymous"></script>
+        <!-- SWIPERJS JS | https://swiperjs.com/ -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
+        <script>
+
+            AOS.init();
+
+            const swiper = new Swiper('.swiper', {
+                slidesPerView: 3,
+                speed: 1000,
+                spaceBetween: 10,
+                loopPreventsSliding: true,
+                slideToClickedSlide: true,
+                autoplay: {
+                    delay: 2000
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                }
+            });
+
+
+            const novemberizing = {
+                fontawesome: {
+                    gen: (className) => {
+                        const o = document.createElement("i");
+
+                        o.className = className;
+
+                        return o;
+                    }
+                },
+                dom: {
+                    gen: (tag, attr, elements) => {
+                        const o = document.createElement(tag);
+
+                        for(const key of (attr ? Object.keys(attr) : [])) {
+                            if(key === "style") {
+                                for(const styleKey of (attr[key] ? Object.keys(attr[key]) : [])) {
+                                    o.style[styleKey] = attr[key][styleKey];
+                                }
+                            } else if(key.startsWith("on")) {
+                                if(key === "onClick") {
+                                    o.addEventListener("click", attr[key]);
+                                } else if(key === "onChange") {
+                                    o.addEventListener("change", attr[key]);
+                                } else if(key === "onKeyup") {
+                                    o.addEventListener("keyup", attr[key]);
+                                }
+                            } else {
+                                if(key.startsWith("novemberizing") || key.startsWith("data-bs") || key.startsWith("aria-")) {
+                                    o.setAttribute(key, attr[key]);
+                                } else {
+                                    o[key] = attr[key];
+                                }
+                            }
+                        }
+
+                        for(const element of (elements || [])) {
+                            if(typeof element === "string") {
+                                o.appendChild(document.createTextNode(element));
+                            } else {
+                                if(element) {
+                                    o.appendChild(element);
+                                }
+                            }
+                        }
+
+                        return o;
+                    }
+                },
+                show: (element) => {
+                    if(NodeList.prototype.isPrototypeOf(element)) {
+                        for(let i = 0; i < element.length; i++) {
+                            novemberizing.show(element[i]);
+                        }
+                        return;
+                    }
+                    if(typeof element === "string") element = document.getElementById(element);
+                    if(element.classList.contains("hide")) {
+                        element.classList.replace("hide", "show");
+                    } else {
+                        element.classList.add("show");
+                    }
+                },
+                hide: (element) => {
+                    if(NodeList.prototype.isPrototypeOf(element)) {
+                        for(let i = 0; i < element.length; i++) {
+                            novemberizing.hide(element[i]);
+                        }
+                        return;
+                    }
+                    if(typeof element === "string") element = document.getElementById(element);
+                    if(element.classList.contains("show")) {
+                        element.classList.replace("show", "hide");
+                    } else {
+                        element.classList.add("hide");
+                    }
+                },
+                /** {{#license}} */
+                modal: new bootstrap.Modal(document.getElementById('novemberizing-modal')),
+                /** {{/license}} */
+                /** {{^license}} */
+                modal: { show: () => (undefined) },
+                /** {{/license}} */
+                move: addr => (location.href = addr),
+                static: {
+
+                    view: {
+                        preprocess: (dom, context = [], generatedConfig = {}) => {
+                            let currentConfig = context.reduce((accumulator, key) => accumulator = accumulator[key], generatedConfig);
+                            
+                            for(const node of dom.childNodes) {
+                                if(node.nodeType === Node.COMMENT_NODE) {
+                                    const value = node.nodeValue.trim();
+                                    if(value.startsWith("\{\{") && value.endsWith("\}\}")) {
+                                        if(value.startsWith("\{\{\#")) {
+                                            const name = value.substring(3, value.length - 2).trim();
+                                            currentConfig[name] = {};
+                                            context.push(name);
+                                        } else if(value.startsWith("\{\{\/")) {
+                                            context.pop();
+                                            currentConfig = context.reduce((accumulator, key) => accumulator = accumulator[key], generatedConfig);
+                                        } else {
+                                            throw new Error();
+                                        }
+                                    }
+                                } else if(node.nodeType === Node.TEXT_NODE) {
+                                    let value = node.nodeValue.trim();
+                                    while(value) {
+                                        if(value.startsWith("\{\{") && value.endsWith("\}\}")) {
+                                            if(value.startsWith("\{\{\#")) {
+                                                const name = value.substring(3, value.length - 2).trim();
+                                                currentConfig[name] = {};
+                                                context.push(name);
+                                            } else if(value.startsWith("\{\{\/")) {
+                                                context.pop();
+                                                currentConfig = context.reduce((accumulator, key) => accumulator = accumulator[key], generatedConfig);
+                                                const index = value.indexOf("\}\}");
+                                                value = value.substring(index + 2)
+                                                             .trim();
+                                                continue;
+                                            } else {
+                                                const key = value.substring(2, value.length - 2).trim();
+                                                if(key === ".") {
+                                                    currentConfig[key] = ["--", "novemberizing", "static", ...context].join("-");
+                                                    node.parentNode.setAttribute("name", currentConfig[key]);
+                                                } else {
+                                                    currentConfig[key] = ["--", "novemberizing", "static", ...context, key].join("-");
+                                                    node.parentNode.setAttribute("name", currentConfig[key]);
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    
+                                } else if(node.nodeType === Node.ELEMENT_NODE) {
+                                } else {
+                                }
+                                if(node.hasChildNodes()) {
+                                    novemberizing.static.view.preprocess(node, context, generatedConfig);
+                                }
+                            }
+                            // console.log(generatedConfig);
+                            return {dom, generatedConfig};
+                        },
+                        on: async link => {
+                            // GET DOCUMENT
+                            const frame = document.getElementById("novemberizing-static-view");
+                            // LOAD DOM
+                            const { dom, generatedConfig } = novemberizing.static.view.preprocess(await novemberizing.static.dom(link));
+                            // console.log(dom.cloneNode(true));
+                            const config = await novemberizing.static.config(`${link}.json`);
+                            // LOAD HEAD
+                            dom.head.innerHTML = Mustache.render(dom.head.innerHTML, config.o["index.html"]);
+                            frame.contentWindow.document.head.innerHTML = "";
+                            for(const node of dom.head.children) {
+                                if(node.tagName && node.tagName.toUpperCase() === "SCRIPT") {
+                                    const script = document.createElement("script");
+                                    if(node.src) script.src = node.src;
+                                    frame.contentWindow.document.head.appendChild(script);
+                                } else {
+                                    frame.contentWindow.document.head.appendChild(node.cloneNode(true));
+                                }
+                            }
+                            // LOAD BODY
+
+                            dom.body.innerHTML = Mustache.render(dom.body.innerHTML, config.o["index.html"]);
+                            frame.contentWindow.document.body.innerHTML = "";
+                            for(const node of dom.body.children) {
+                                if(node.tagName && node.tagName.toUpperCase() === "SCRIPT") {
+                                    const script = document.createElement("script");
+                                    if(node.src) script.src = node.src;
+                                    frame.contentWindow.document.body.appendChild(script);
+                                } else {
+                                    frame.contentWindow.document.body.appendChild(node.cloneNode(true));
+                                }
+                            }
+                            // LOAD COMMENT
+                            const observer = new MutationObserver((mutations, observer) => {
+                                frame.height = frame.contentWindow.document.body.scrollHeight;
+                                observer.disconnect();
+                            });
+                            observer.observe(frame.contentWindow.document.body, { attributes: true, childList: true, subtree: true });
+                            const comment = document.createComment("novemberizing <novemberizing@gmail.com>");
+                            frame.contentWindow.document.body.appendChild(comment);
+
+                            // DISPLAY
+                            window.addEventListener("resize", novemberizing.static.onResizeBody);
+                            novemberizing.show(frame);
+
+                            return { dom, config, generatedConfig };
+                        },
+                        off: async () => {
+                            novemberizing.hide('novemberizing-static-view');
+                            window.removeEventListener("resize", novemberizing.static.onResizeBody);
+                        }
+                    },
+                    controller: {
+                        gen: (config, parent, depth = 0, context = []) => {
+                            const elements = {};
+                            for(const key of Object.keys(config)) {
+                                const o = config[key];
+                                context.push(key);
+                                let icon = "fa-regular fa-circle-dot";
+                                let comments = null;
+                                let types = null;
+                                let value = null;
+                                let element = null;
+
+                                if(typeof o === "string") {
+                                    comments = o.split(/[^\\(=?\|)]\||^\|/).map(v => v.trim());
+                                    value = comments[1];
+                                    types = comments[2].split(",");
+                                    // TODO: REFACTOR THIS
+                                    if(types.includes("file")) {
+                                        icon = "fa-solid fa-file";
+                                    } else if(types.includes("dir")) {
+                                        icon = "fa-solid fa-folder-closed";
+                                    } else if(types.includes("date")) {
+                                        icon = "fa-regular fa-calendar";
+                                    } else if(types.includes("text")) {
+                                        icon = "fa-solid fa-font";
+                                    } else if(types.includes("img")) {
+                                        icon = "fa-regular fa-image";
+                                    } else if(types.includes("img")) {
+                                        icon = "fa-regular fa-image";
+                                    } else if(types.includes("facebook")) {
+                                        icon = "fa-brands fa-facebook";
+                                    } else if(types.includes("twitter")) {
+                                        icon = "fa-brands fa-twitter";
+                                    } else if(types.includes("instagram")) {
+                                        icon = "fa-brands fa-instagram";
+                                    } else if(types.includes("linkedin")) {
+                                        icon = "fa-brands fa-linkedin";
+                                    } else if(types.includes("email")) {
+                                        icon = "fa-solid fa-at";
+                                    } else if(types.includes("phone")) {
+                                        icon = "fa-solid fa-phone";
+                                    } else if(types.includes("map")) {
+                                        icon = "fa-solid fa-map";
+                                    } else if(types.includes("credit")) {
+                                        icon = "fa-regular fa-credit-card";
+                                    } else if(types.includes("license")) {
+                                        icon = "fa-regular fa-copyright";
+                                    } else if(types.includes("url")) {
+                                        icon = "fa-solid fa-earth-asia";
+                                    }
+                                    // TODO: REFACTOR THIS
+                                } else if(typeof o === "object") {
+                                    icon = "fa-solid fa-folder-open";
+                                    if(Array.isArray(o)) {
+                                        console.log("todo");
+                                    } else {
+                                        const supports = [".html"];
+
+                                        if(supports.find(extension => key.endsWith(extension))) {
+                                            icon = "fa-solid fa-file";
+                                        }
+                                    }
+                                } else {
+                                    console.log(o);
+                                    throw new Error("unsupported");
+                                }
+
+                                const marginLeft = `${8 * (depth + 1)}px`;
+                                const paddingLeft = `${8 * (depth + 1)}px`;
+
+                                function toggle(e) {
+                                    let element = e.target.parentNode.parentNode.nextSibling;
+                                    while(element) {
+                                        if(element.classList.contains("show")) {
+                                            element.classList.replace("show", "hide");
+                                        } else if(element.classList.contains("hide")) {
+                                            element.classList.replace("hide", "show");
+                                        } else {
+                                            element.classList.add("hide");
+                                        }
+                                        element = element.nextSibling;
+                                    }
+                                }
+                                const cur = JSON.parse(JSON.stringify(context));
+                                function change(e) {
+                                    const log = document.getElementById("novemberizing-static-controller-console");
+                                    log.innerHTML = "";
+
+                                    const o = cur.slice(1);
+                                    const frame = document.getElementById("novemberizing-static-view");
+                                    const nodes = frame.contentWindow.document.getElementsByName(["--", "novemberizing", "static", ...o].join("-"));
+                                    if(nodes.length > 0) {
+                                        for(const node of nodes) {
+                                            const value = e.target.value.trim();
+                                            node.innerHTML = value.replace(/ /g, "&nbsp;");
+                                            if(node.parentNode && node.parentNode.tagName.toUpperCase() === "HEAD") {
+                                                
+                                                log.style.color = "var(--bs-danger)";
+                                                log.innerHTML = "[warning] &lt;head&gt; is not display. <i class=\"fa-solid fa-bug\"></i>";
+                                            }
+                                        }
+                                        
+                                    } else {
+                                        log.style.color = "var(--bs-danger)";
+                                        log.innerHTML = "[warning] Not yet supported. <i class=\"fa-solid fa-bug\"></i>";
+                                    }
+                                }
+
+                                parent.append(novemberizing.dom.gen("div", { className: "row", style: { "border-bottom": types === null ? "" : "1px solid #cfcfcf" } }, 
+                                    types === null ? [
+                                        element = novemberizing.dom.gen("div", { className: "col-12" }, [
+                                            novemberizing.dom.gen("div", { className: "row", style: { "border-bottom": "1px solid #cfcfcf" } }, [
+                                                novemberizing.dom.gen("div", { className: "col-6", style: { "border-right": "1px solid #cfcfcf", padding: '0px', paddingLeft } }, [
+                                                    icon.startsWith("fa-solid fa-folder") || (typeof o === "object" && Object.keys(o).length > 0) ?
+                                                        novemberizing.dom.gen("button", { onClick: toggle, className: "btn btn-link" }, [
+                                                            novemberizing.fontawesome.gen(`${icon} pe-1`),
+                                                            key
+                                                        ]) :
+                                                        novemberizing.dom.gen("span", {}, [ novemberizing.fontawesome.gen(`${icon} pe-1`), key ])
+                                                ]),
+                                                novemberizing.dom.gen("div", { className: "col-6" }, [])
+                                            ])
+                                        ])
+                                    ] : [
+                                        novemberizing.dom.gen("div", { className: "col-6", style: { padding: '0px', paddingLeft, "border-right": "1px solid #cfcfcf" } }, [
+                                            novemberizing.fontawesome.gen(`${icon} pe-1`),
+                                            key
+                                        ]),
+                                        novemberizing.dom.gen("div", { className: "col-6", style: { paddingLeft: '4px', paddingRight: '4px' } }, [
+                                            types.includes("boolean") ?
+                                                novemberizing.dom.gen("div", { className: "dropdown novemberizing static controller-dropdown"}, [
+                                                    novemberizing.dom.gen("button", { type: "button", className: "btn btn-link dropdown-toggle", id: "helloworld", "data-bs-toggle": "dropdown", "aria-expanded": false }, [ value ]),
+                                                    novemberizing.dom.gen("ul", {className: "dropdown-menu", "aria-labelledby": "helloworld"}, [
+                                                        novemberizing.dom.gen("li", {}, [ novemberizing.dom.gen("button", { onClick: e=> { e.target.parentNode.parentNode.previousSibling.innerText = "true"; change(e); }, className: "dropdown-item"}, [ "true" ]) ]),
+                                                        novemberizing.dom.gen("li", {}, [ novemberizing.dom.gen("button", { onClick: e=> { e.target.parentNode.parentNode.previousSibling.innerText = "false"; change(e); }, className: "dropdown-item"}, [ "false" ]) ])
+                                                    ])
+                                                ]) : 
+                                                novemberizing.dom.gen("input", { onKeyup: change, onChange: change, type: "text", className: "novemberizing static controller-input form-control text-truncate", value}, [])
+                                        ])
+                                    ]
+                                ));
+
+                                if(typeof o === "object") {
+                                    if(Array.isArray(o)) {
+                                        console.log("array todo");
+                                    } else {
+                                        novemberizing.static.controller.gen(config[key], element, depth + 1, context);
+                                        
+                                    }
+                                }
+                                context.pop();
+                            }
+                        },
+                        on: async (link, config) => {
+                            const controller = document.getElementById("novemberizing-static-controller");
+                            controller.innerHTML = "";
+                            controller.style.top = '120px';
+                            
+                            controller.appendChild(novemberizing.dom.gen("div", { className: "row title" }, [
+                                novemberizing.dom.gen("div", { className: "col-6"}, [ "Field" ]),
+                                novemberizing.dom.gen("div", { className: "col-6"}, [ "Detail"]),
+                            ]));
+
+                            const content = controller.appendChild(novemberizing.dom.gen("div", { style: { "max-height": "300px", "overflow-y": "auto" }}, [
+
+                            ]));
+
+                            novemberizing.static.controller.gen(config, content);
+
+                            controller.appendChild(novemberizing.dom.gen("div", { className: "row footer" }, [
+                                novemberizing.dom.gen("div", { className: "col-12 p-0 text-center"}, [
+                                    novemberizing.dom.gen("sub", { className: "px-2", id: "novemberizing-static-controller-console"}, [])
+                                ]),
+                                novemberizing.dom.gen("div", { className: "col-12"}, [
+                                    novemberizing.dom.gen("sub", { className: "px-2", style: { fontSize: ".7rem", fontWeight: "normal" }}, [
+                                        "if you re-open control bar click",
+                                        novemberizing.fontawesome.gen("fa-solid fa-list ps-1")
+                                    ]),
+                                    novemberizing.dom.gen("button", { onClick: e => novemberizing.hide(controller), className: "btn btn-link", style: { fontWeight: "bold", fontSize: '1rem' }}, [
+                                        novemberizing.fontawesome.gen("fa-solid fa-circle-xmark")
+                                    ])
+                                ]),
+                            ]));
+
+                            novemberizing.show("novemberizing-static-controller");
+                        },
+                        off: async () => {
+                            novemberizing.hide("novemberizing-static-controller");
+                        }
+                    },
+                    link: {
+                        on: async link => {
+                            novemberizing.show(document.querySelectorAll(".nav-item.novemberizing.static.link"));
+                        },
+                        off: async () => {
+                            novemberizing.hide(document.querySelectorAll(".nav-item.novemberizing.static.link"));
+                        }
+                    },
+                    adjust: (dom, link) => {
+                        if(dom.hasChildNodes()) {
+                            const children = dom.childNodes;
+                            for(const node of children) {
+                                novemberizing.static.adjust(node, link);
+                                if(node.tagName) {
+                                    if(node.hasAttribute("href")) {
+                                        const href = node.getAttribute("href");
+                                        if(!href.startsWith("http://") && !href.startsWith("https://") && !href.startsWith("/") && !href.startsWith("\{\{") && !href.startsWith("#") && href!=="") {
+                                            node.setAttribute("href", `${link}${href}`);
+                                        }
+                                    } else if(node.hasAttribute("src")) {
+                                        const src = node.getAttribute("src");
+                                        if(!src.startsWith("http://") && !src.startsWith("https://") && !src.startsWith("/") && !src.startsWith("\{\{") && !src.startsWith("#") && src!=="") {
+                                            node.setAttribute("src", `${link}${src}`);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        return dom;
+                    },
+                    dom: async url => {
+                        const res = await fetch(`${url}/`);
+                        const text = await res.text();
+                        const parser = new DOMParser();
+
+                        return novemberizing.static.adjust(parser.parseFromString(text, "text/html"), `${url}/`);
+                    },
+                    config: async (url) => {
+                        const res = await fetch(url);
+                        const json = await res.json();
+
+                        function deserialize(o) {
+                            const keys = Object.keys(o);
+                            for(let i = 0; i < keys.length; i++) {
+                                const key = keys[i];
+                                const obj = o[key];
+                                if(Array.isArray(obj)) {
+                                    // throw new Error('');
+                                } else if(typeof obj === "string") {
+                                    if(obj.startsWith("|") && obj.endsWith("|")) {
+                                        const pattern = /[^\\(=?\|)]\||^\|/;
+                                        const fields = obj.split(pattern)
+                                                          .map(v => v.trim());
+                                        
+                                        o[key] = fields[1].replace(/\\\|/g, "|");
+                                                              
+                                        continue;
+                                    }
+                                } else if(typeof obj=== "object") {
+                                    if(obj === null) {
+                                        throw new Error('');
+                                        continue;
+                                    }
+                                    o[keys[i]] = deserialize(o[keys[i]]);
+                                } else {
+                                    // throw new Error('');
+                                }
+                            }
+                            return o;
+                        }
+
+                        const o = deserialize(JSON.parse(JSON.stringify(json)));
+
+                        return { json, o };
+                    },
+                    onResizeBody: e => {
+                        const frame = document.getElementById("novemberizing-static-view");
+                        // TODO: 크기가 줄어 들 때, 그 크기가 커진 상태에서 줄어들지 않는다.
+                        const rect = frame.contentWindow.document.body.querySelector("footer").getBoundingClientRect(); 
+                        frame.height = parseInt(rect.y + rect.height);
+                        
+                    },
+                    on: async link => {
+                        const { config } = await novemberizing.static.view.on(link);
+                        await novemberizing.static.controller.on(link, config.json);
+                        await novemberizing.static.link.on(link);
+                    },
+                    off: async () => {
+                        await novemberizing.static.view.off();
+                        await novemberizing.static.controller.off();
+                        await novemberizing.static.link.off();
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+

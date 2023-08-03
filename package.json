@@ -1,0 +1,38 @@
+{
+  "name": "@novemberizing/static",
+  "version": "0.0.1",
+  "description": "novemberizing's static website generator",
+  "main": "./src/index.js",
+  "type": "module",
+  "bin": {
+    "novemberizing-static-gen": "./src/cli.js"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novemberizing/static.git"
+  },
+  "keywords": [
+    "novemberizing",
+    "static",
+    "website",
+    "generator"
+  ],
+  "author": "novemberizing <novemberizing@gmail.com>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/novemberizing/static/issues"
+  },
+  "homepage": "https://github.com/novemberizing/static#readme",
+  "dependencies": {
+    "@novemberizing/log": "^0.0.20",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.8",
+    "mustache": "^4.2.0"
+  }
+}

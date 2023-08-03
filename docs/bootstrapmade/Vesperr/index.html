@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>{{ title }}</title>
+        <meta content="{{ description }}" name="description">
+        <meta content="{{ keywords }}" name="keywords">
+        <!-- Favicons -->
+        <link href="{{ favicon }}" rel="icon">
+        <link href="{{ apple.icon }}" rel="apple-touch-icon">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+        {{#license}}
+        <!-- =======================================================
+          * Template Name: Vesperr
+          * Updated: Jul 27 2023 with Bootstrap v5.3.1
+          * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+          * Author: BootstrapMade.com
+          * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+        {{/license}}
+    </head>
+    <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top d-flex align-items-center">
+            <div class="container d-flex align-items-center justify-content-between">
+                <div class="logo">
+                    <h1><a href="index.html">{{ logo }}{{#organization}}<sup class="organization">{{ . }}</sup>{{/organization}}</a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                </div>
+                {{#menu}}
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        {{#home}}
+                        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                        {{/home}}
+                        {{#about}}
+                        <li><a class="nav-link scrollto" href="#about">About</a></li>
+                        {{/about}}
+                        {{#service}}
+                        <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                        {{/service}}
+                        {{#portfolio}}
+                        <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+                        {{/portfolio}}
+                        {{#team}}
+                        <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                        {{/team}}
+                        {{#pricing}}
+                        <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+                        {{/pricing}}
+                        {{#dropdown}}
+                        <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="#">Drop Down 1</a></li>
+                                <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                                    <ul>
+                                        <li><a href="#">Deep Drop Down 1</a></li>
+                                        <li><a href="#">Deep Drop Down 2</a></li>
+                                        <li><a href="#">Deep Drop Down 3</a></li>
+                                        <li><a href="#">Deep Drop Down 4</a></li>
+                                        <li><a href="#">Deep Drop Down 5</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Drop Down 2</a></li>
+                                <li><a href="#">Drop Down 3</a></li>
+                                <li><a href="#">Drop Down 4</a></li>
+                            </ul>
+                        </li>
+                        {{/dropdown}}
+                        {{#contact}}
+                        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                        {{/contact}}
+                        {{#getstarted}}
+                        <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+                        {{/getstarted}}
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+                {{/menu}}
+            </div>
+        </header>
+        <!-- End Header -->
+        {{#home}}
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-top">
+                        <h1 data-aos="fade-up">{{ title }}</h1>
+                        <h2 data-aos="fade-up" data-aos-delay="400">{{ description }}</h2>
+                        <div data-aos="fade-up" data-aos-delay="800">
+                            {{#getstarted}}
+                            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                            {{/getstarted}}
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+                        <img src="{{{ image }}}" class="img-fluid animated" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Hero -->
+        {{/home}}
+        <main id="main">
+            {{#client}}
+            <!-- ======= Clients Section ======= -->
+            <section id="clients" class="clients clients">
+                <div class="container">
+                    <div class="row">
+                        {{#items}}
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="{{{ image }}}" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="{{ delay }}">
+                        </div>
+                        {{/items}}
+
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Clients Section -->
+            {{/client}}
+            {{#about}}
+            <!-- ======= About Us Section ======= -->
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>About Us</h2>
+                    </div>
+                    <div class="row content">
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+                            <p>{{ description }}</p>
+                            <ul>
+                                {{#items}}
+                                <li><i class="ri-check-double-line"></i>{{ . }}</li>
+                                {{/items}}
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                            <p>{{detail}}</p>
+                            {{#more}}
+                            <a href="{{{ . }}}" class="btn-learn-more">Learn More</a>
+                            {{/more}}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End About Us Section -->
+            {{/about}}
+            {{#count}}
+            <!-- ======= Counts Section ======= -->
+            <section id="counts" class="counts">
+                <div class="container">
+                    <div class="row">
+                        <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start" data-aos="fade-right" data-aos-delay="150">
+                            {{#image}}
+                            <img src="{{{ . }}}" alt="" class="img-fluid">
+                            {{/image}}
+                        </div>
+                        <div class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0" data-aos="fade-left" data-aos-delay="300">
+                            <div class="content d-flex flex-column justify-content-center">
+                                <div class="row">
+                                    {{#items}}
+                                    <div class="col-md-6 d-md-flex align-items-md-stretch">
+                                        <div class="count-box">
+                                            <i class="bi {{ icon }}"></i>
+                                            <span data-purecounter-start="0" data-purecounter-end="{{ count }}" data-purecounter-duration="1" class="purecounter"></span>
+                                            <p><strong>{{ title }}</strong> {{ description }}</p>
+                                        </div>
+                                    </div>
+                                    {{/items}}
+                                </div>
+                            </div>
+                            <!-- End .content-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Counts Section -->
+            {{/count}}
+            {{#service}}
+            <!-- ======= Services Section ======= -->
+            <section id="services" class="services">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Services</h2>
+                        <p>{{ description }}</p>
+                    </div>
+                    <div class="row">
+                        {{#items}}
+                        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="{{ delay }}">
+                                <div class="icon"><i class="bx {{ icon }}"></i></div>
+                                <h4 class="title"><a href="{{{ link }}}">{{ title }}</a></h4>
+                                <p class="description">{{ description }}</p>
+                            </div>
+                        </div>
+                        {{/items}}
+                    </div>
+                </div>
+            </section>
+            <!-- End Services Section -->
+            {{/service}}
+            {{#more}}
+            <!-- ======= More Services Section ======= -->
+            <section id="more-services" class="more-services">
+                <div class="container">
+                    <div class="row">
+                        {{#items}}
+                        <div class="col-md-6 d-flex align-items-stretch">
+                            <div class="card" style='background-image: url("{{{ image }}}");' data-aos="fade-up" data-aos-delay="{{ delay }}">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="{{{ link }}}">{{ title }}</a></h5>
+                                    <p class="card-text">{{ description }}</p>
+                                    <div class="read-more"><a href="{{{ more }}}"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/items}}
+                    </div>
+                </div>
+            </section>
+            <!-- End More Services Section -->
+            {{/more}}
+            {{#feature}}
+            <!-- ======= Features Section ======= -->
+            <section id="features" class="features">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Features</h2>
+                        <p>{{ description }}</p>
+                    </div>
+                    <div class="row" data-aos="fade-up" data-aos-delay="300">
+                        {{#items}}
+                        <div class="col-lg-3 col-md-4">
+                            <div class="icon-box">
+                                <i class="{{ icon }}" {{{ style }}}></i>
+                                <h3><a href="{{{ link }}}">{{ title }}</a></h3>
+                            </div>
+                        </div>
+                        {{/items}}
+                    </div>
+                </div>
+            </section>
+            <!-- End Features Section -->
+            {{/feature}}
+            {{#testimonial}}
+            <!-- ======= Testimonials Section ======= -->
+            <section id="testimonials" class="testimonials section-bg">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Testimonials</h2>
+                        <p>{{ description }}</p>
+                    </div>
+                    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                        <div class="swiper-wrapper">
+                            {{#items}}
+                            <div class="swiper-slide">
+                                <div class="testimonial-wrap">
+                                    <div class="testimonial-item">
+                                        <img src="{{ image }}" class="testimonial-img" alt="">
+                                        <h3>{{ name }}</h3>
+                                        <h4>{{{ job }}}</h4>
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                            {{ description }}
+                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/items}}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Testimonials Section -->
+            {{/testimonial}}
+            {{#portfolio}}
+            <!-- ======= Portfolio Section ======= -->
+            <section id="portfolio" class="portfolio">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Portfolio</h2>
+                        <p>{{ description }}</p>
+                    </div>
+                    <div class="row" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-12 d-flex justify-content-center">
+                            <ul id="portfolio-flters">
+                                <li data-filter="*" class="filter-active">All</li>
+                                <li data-filter=".filter-app">App</li>
+                                <li data-filter=".filter-card">Card</li>
+                                <li data-filter=".filter-web">Web</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
+                        {{#items}}
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ filter }}">
+                            <div class="portfolio-wrap">
+                                <img src="{{{ image }}}" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>{{ title }}</h4>
+                                    <p>{{ filter }}</p>
+                                    <div class="portfolio-links">
+                                        <a href="{{{ image }}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ title }}"><i class="bx bx-plus"></i></a>
+                                        <a href="{{{ link }}}" title="More Details"><i class="bx bx-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/items}}
+                    </div>
+                </div>
+            </section>
+            <!-- End Portfolio Section -->
+            {{/portfolio}}
+            {{#team}}
+            <!-- ======= Team Section ======= -->
+            <section id="team" class="team section-bg">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Team</h2>
+                        <p>{{ description }}</p>
+                    </div>
+                    <div class="row">
+                        {{#items}}
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                            <div class="member" data-aos="fade-up" data-aos-delay="{{ delay }}">
+                                <div class="member-img">
+                                    <img src="{{{ image }}}" class="img-fluid" alt="">
+                                    <div class="social">
+                                        {{#twitter}}
+                                        <a href="{{{ . }}}"><i class="bi bi-twitter"></i></a>
+                                        {{/twitter}}
+                                        {{#facebook}}
+                                        <a href="{{{ . }}}"><i class="bi bi-facebook"></i></a>
+                                        {{/facebook}}
+                                        {{#instagram}}
+                                        <a href="{{{ . }}}"><i class="bi bi-instagram"></i></a>
+                                        {{/instagram}}
+                                        {{#linkedin}}
+                                        <a href="{{{ . }}}"><i class="bi bi-linkedin"></i></a>
+                                        {{/linkedin}}
+                                    </div>
+                                </div>
+                                <div class="member-info">
+                                    <h4>{{ name }}</h4>
+                                    <span>{{ job }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/items}}
+                    </div>
+                </div>
+            </section>
+            <!-- End Team Section -->
+            {{/team}}
+            {{#pricing}}
+            <!-- ======= Pricing Section ======= -->
+            <section id="pricing" class="pricing">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Pricing</h2>
+                        <p>{{ description }}</p>
+                    </div>
+                    <div class="row">
+                        {{#items}}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="box" data-aos="zoom-in-right" data-aos-delay="{{ delay }}200">
+                                <h3>{{ title }}</h3>
+                                <h4>{{{ price }}}</h4>
+                                <ul>
+                                    {{#items}}
+                                    <li class="{{ not }}">{{ title }}</li>
+                                    {{/items}}
+                                </ul>
+                                {{#link}}
+                                <div class="btn-wrap">
+                                    <a href="{{{ . }}}" class="btn-buy">Buy Now</a>
+                                </div>
+                                {{/link}}
+                            </div>
+                        </div>
+                        {{/items}}
+                    </div>
+                </div>
+            </section>
+            <!-- End Pricing Section -->
+            {{/pricing}}
+            {{#faq}}
+            <!-- ======= F.A.Q Section ======= -->
+            <section id="faq" class="faq">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                    {{#items}}
+                    <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{ delay }}100">
+                        <div class="col-lg-5">
+                            <i class="ri-question-line"></i>
+                            <h4>{{ title }}</h4>
+                        </div>
+                        <div class="col-lg-7">
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                    <!-- End F.A.Q Item-->
+                    {{/items}}
+                </div>
+            </section>
+            <!-- End F.A.Q Section -->
+            {{/faq}}
+            {{#contact}}
+            <!-- ======= Contact Section ======= -->
+            <section id="contact" class="contact">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Contact Us</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="contact-about">
+                                <h3>{{ title }}</h3>
+                                <p>{{ description }}</p>
+                                <div class="social-links">
+                                    {{#twitter}}
+                                    <a href="{{{ . }}}" class="twitter"><i class="bi bi-twitter"></i></a>
+                                    {{/twitter}}
+                                    {{#facebook}}
+                                    <a href="{{{ . }}}" class="facebook"><i class="bi bi-facebook"></i></a>
+                                    {{/facebook}}
+                                    {{#instagram}}
+                                    <a href="{{{ . }}}" class="instagram"><i class="bi bi-instagram"></i></a>
+                                    {{/instagram}}
+                                    {{#linkedin}}
+                                    <a href="{{{ . }}}" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                                    {{/linkedin}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+                            <div class="info">
+                                <div>
+                                    <i class="ri-map-pin-line"></i>
+                                    <p>{{{ address }}}</p>
+                                </div>
+                                <div>
+                                    <i class="ri-mail-send-line"></i>
+                                    <p>{{{ email }}}</p>
+                                </div>
+                                <div>
+                                    <i class="ri-phone-line"></i>
+                                    <p>{{{ phone }}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+                            <!-- TODO: REMOVE FORM -->
+                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="my-3">
+                                    <div class="loading">{{ loading }}</div>
+                                    <div class="error-message">{{ error }}</div>
+                                    <div class="sent-message">{{ sent }}</div>
+                                </div>
+                                <div class="text-center"><button type="submit">Send Message</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Contact Section -->
+            {{/contact}}
+        </main><!-- End #main -->
+        {{#footer}}
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-6 text-lg-left text-center">
+                        {{#license}}
+                        <div class="copyright">
+                            &copy; Copyright <strong>Vesperr</strong>. All Rights Reserved
+                        </div>
+                        {{/license}}
+                        {{#credits}}
+                        <div class="credits">
+                            <!-- All the links in the footer should remain intact. -->
+                            <!-- You can delete the links only if you purchased the pro version. -->
+                            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+                            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        </div>
+                        {{/credits}}
+                    </div>
+                    <div class="col-lg-6">
+                        <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+                            {{#home}}<a href="#hero" class="scrollto">Home</a>{{/home}}
+                            {{#about}}<a href="#about" class="scrollto">About</a>{{/about}}
+                            {{#privacy}}<a href="{{{ . }}}">Privacy Policy</a>{{/privacy}}
+                            {{#terms}}<a href="{{{ . }}}">Terms of Use</a>{{/terms}}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+        {{/footer}}
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
