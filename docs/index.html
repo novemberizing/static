@@ -36,7 +36,6 @@
                         <a href="index.html">STATIC</a>
                         <!-- #organization --><sup class="organization"><a href="https://github.com/novemberizing">@novemberizing</a></sup><!-- /organization -->
                     </h1>
-                    
                 </div>
                 <nav id="navbar" class="navbar navbar-expand">
                     <div class="container-fluid px-0 px-sm-3">
@@ -57,13 +56,13 @@
                             <li class="nav-item"><a class="nav-link" href="https://www.buymeacoffee.com/novemberizing"><i class="fa-solid fa-mug-hot" style="vertical-align: sub;"></i></a></li>
                             <!-- /buymeacoffee -->
                             <li class="nav-item novemberizing static link hide"><a class="nav-link"><i class="fa-solid fa-grip-lines-vertical" style="vertical-align: sub;"></i></a></li>
-                            <li class="nav-item hide novemberizing static link menu"><button type="button" class="nav-link btn btn-link" onClick="novemberizing.show(document.getElementById('novemberizing-static-controller'))"><i class="fa-solid fa-list" style="vertical-align: sub;"></i>
-                            <li class="nav-item hide novemberizing static link close"><button type="button" class="nav-link btn btn-link" onClick="novemberizing.static.off()"><i class="fa-solid fa-circle-xmark" style="vertical-align: sub;"></i>
-                        
-                    
-                
-            
-        
+                            <li class="nav-item hide novemberizing static link menu"><button type="button" class="nav-link btn btn-link" onClick="novemberizing.show(document.getElementById('novemberizing-static-controller'))"><i class="fa-solid fa-list" style="vertical-align: sub;"></i></button></li>
+                            <li class="nav-item hide novemberizing static link close"><button type="button" class="nav-link btn btn-link" onClick="novemberizing.static.off()"><i class="fa-solid fa-circle-xmark" style="vertical-align: sub;"></i></button></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
         <!-- /header -->
         <!-- HEADER -->
         <!-- #home -->
@@ -89,7 +88,7 @@
                                                 </h5>
                                                 <p class="card-text mb-1">Vesperr is a clean, modern and stylish digital agency website template created with Bootstrap framework. It can be use by agencies, freelancers, corporate business, creative designers or any creative professionals. It comes with smooth interaction animations and makes the user experience more natural and soothing.</p>
                                                 <!-- #generate -->
-                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.on('{{{ . }}}')">Generate</button>
+                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.on('bootstrapmade/Vesperr')">Generate</button>
                                                 <!-- /generate -->
                                             </div>
                                         </div>
@@ -105,7 +104,7 @@
                                                 </h5>
                                                 <p class="card-text mb-1">Maundy is a free coming soon template built in bootstrap framework. It is fully responsive, elegant, simple, clean and mobile friendly bootstrap coming soon template. This template is based on HTML5, CSS3 and latest bootstrap framework with multi browser and any device support. This free coming soon template template packed with fully features and contains many features with a minimal outlooks.</p>
                                                 <!-- #generate -->
-                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.on('{{{ . }}}')">Generate</button>
+                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.on('bootstrapmade/Maundy')">Generate</button>
                                                 <!-- /generate -->
                                             </div>
                                         </div>
@@ -121,13 +120,13 @@
                                                 </h5>
                                                 <p class="card-text mb-1">Bear is a theme that can introduce web applications made with Bootstrap, Animate On Scroll Library, Fontawesome, and Swiperjs. It is provided as a template so that you can easily create a web application introduction page. You can download it directly if needed.</p>
                                                 <!-- #generate -->
-                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.on('{{{ . }}}')">Generate</button>
+                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.on('novemberizing/Bear')">Generate</button>
                                                 <!-- /generate -->
                                             </div>
                                         </div>
                                     </div><!-- /items -->
                                 </div>
-                                <div class="swiper-pagination"></div>                                
+                                <div class="swiper-pagination"></div>
                             </div>
                         </div>
                     </div>
@@ -158,16 +157,16 @@
                     <div class="col-lg-6">
                         <div class="link fw-bold">
                             <!-- #buymeacoffee -->
-                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ . }}}');">Buy me a coffee</button>
+                            <a href="https://www.buymeacoffee.com/novemberizing" class="fw-bold" style="font-size: 14px;">Buy me a coffee</a>
                             <!-- /buymeacoffee -->
                             <!-- #github -->
-                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ . }}}');">Github</button>
+                            <a href="https://github.com/iticworld" class="fw-bold" style="font-size: 14px;">Github</a>
                             <!-- /github -->
                             <!-- #license -->
-                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.modal.show();">License</button>
+                            <a href="LICENSE" class="fw-bold" style="font-size: 14px;">License</a>
                             <!-- /license -->
                             <!-- #organization -->
-                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ link }}}');">@novemberizing</button>
+                            <a href="https://github.com/novemberizing" class="fw-bold" style="font-size: 14px;">@novemberizing</a>
                             <!-- /organization -->
                         </div>
                     </div>
@@ -307,12 +306,17 @@
         <!-- SWIPERJS JS | https://swiperjs.com/ -->
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
-        <!-- REMOVE THIS CODE -->
-        <script src="https://cdn.jsdelivr.net/gh/novemberizing/static/dist/main.js" type="module"></script>
-        <!-- REMOVE THIS CODE -->
+        <script src="./main.js" type="module"></script>
         <script type="module">
-            import novemberizing from "https://cdn.jsdelivr.net/gh/novemberizing/static/dist/main.js";
-            // import novemberizing from 
+            import novemberizing from "./main.js";
+            window.novemberizing = novemberizing;
+
+            console.log(window);
+            
+            // console.log(o);
+            //        .. import novemberizing from "./main.js";
+            console.log(novemberizing);
+
             AOS.init();
 
             const swiper = new Swiper('.swiper', {
@@ -330,11 +334,6 @@
                     dynamicBullets: true
                 }
             });
-
-            console.log(novemberizing);
-
-
-            
         </script>
-    
-</button></li></button></li></ul></div></nav></div></header></body></html>
+    </body>
+</html>

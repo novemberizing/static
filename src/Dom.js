@@ -87,7 +87,7 @@ export default class Dom {
                 const depth = array.reduce((accumulator, current) => accumulator.concat(current.split('.')), []);
 
                 for(let i = 0; i < depth.length; i++) {
-                    if(accumulator[depth[i]]) {
+                    if(typeof accumulator[depth[i]] !== 'undefined' && accumulator[depth[i]] !== null) {
                         if(i + 1 === depth.length) {
                             last = depth[i];
                             break;
@@ -98,9 +98,17 @@ export default class Dom {
                     accumulator = accumulator[depth[i]];
                     break;
                 }
-                if(accumulator) break;
+                if(accumulator !== undefined && accumulator !== null) break;
                 array.shift();
             } while(array.length > 0);
+
+            if(accumulator === undefined || accumulator === null) {
+                const array = (key ? context.concat(key) : context.concat());
+                const depth = array.reduce((accumulator, current) => accumulator.concat(current.split('.')), []);
+                last = depth.pop();
+                accumulator = depth.reduce((accumulator, current) => accumulator = (accumulator ? accumulator[current] : {}), config);
+                accumulator[last] = false;
+            }
 
             if(type === '#' || type === '^') {
                 context.push(key);
@@ -129,7 +137,6 @@ export default class Dom {
             }
             return accumulator[last];
         } else {
-            // console.log(typeof accumulator[last]);
             throw new Error();
         }
     }
@@ -170,14 +177,15 @@ export default class Dom {
                 const { end, key, type, accumulator, last, array } = Dom.#parse(s, start, config, context);
                 if(type === '' || type === '.') {
                     // TODO: RECONFIG
-                    if(!accumulator[last]) throw new Error();
+                    if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
                     const value = Dom.#value(accumulator, last);
                     const n = document.createTextNode(value);
                     elements.push(n);
                     Dom.#reconfig(accumulator, last, n, value, "text");
                 } else {
                     if(type === '#' || type === '^') {
-                        if(!accumulator[last]) throw new Error();
+                        if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
+                        
                         const value = Dom.#value(accumulator, last);
                         const n = document.createComment(` ${type}${key} `);
                         elements.push(n);
@@ -193,7 +201,8 @@ export default class Dom {
                             if(child.nodeValue) {
                                 const v = child.nodeValue.trim();
                                 const k = v.startsWith("{{{") ? v.substring(3, v.indexOf("}}}")).trim() : v.substring(2, v.indexOf("}}")).trim().substring(1);
-                                if(k === key) break;
+                                
+                                if(v.startsWith("{{") && k === key) break;
                             }
                             children.push(child.cloneNode(true));
                         }
@@ -205,7 +214,7 @@ export default class Dom {
                                 for(let i = 1; i < value.length; i++) {
                                     children.forEach(clone => {
                                         context.push(`${i}`);
-                                        elements.push(Dom.#render(document, clone.cloneNode(true), n, config, context));
+                                        elements.push(Dom.#render(document, clone.cloneNode(true), parent, config, context));
                                         context.pop();
                                     });
                                 }
@@ -214,14 +223,18 @@ export default class Dom {
                                 while(node.previousSibling) {
                                     if(node.previousSibling.nodeValue) {
                                         const v = node.previousSibling.nodeValue.trim();
-                                        const k = v.startsWith("{{{") ? v.substring(3, v.indexOf("}}}")).trim() : v.substring(2, v.indexOf("}}")).trim().substring(1);
-                                        if(k === key) break;
+                                        const k = v.startsWith("{{{") ? v.substring(3, v.indexOf("}}}")).trim() : v.substring(2, v.indexOf("}}")).trim();
+                                        if(v.startsWith("{{") && (k === `#${key}` || k === `^{key}`)) {
+                                            break;
+                                        }
                                     }
                                     node.parentNode.removeChild(node.previousSibling);
                                 }
                             } else {
                                 open.accumulator[open.last]._children = children;
                             }
+                        } else {
+                            throw new Error();
                         }
                         elements.push(n);
                     } else {
@@ -245,20 +258,46 @@ export default class Dom {
                     const { end, key, type, accumulator, last, array } = Dom.#parse(value, 0, config, context);
                     if(type === '' || type === '.') {
                         // TODO: RECONFIG
-                        if(!accumulator[last]) throw new Error();
+                        if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
                         const value = Dom.#value(accumulator, last);
-                        attribute.value = attribute.nodeValue = value;
+                        try {
+                            attribute.value = attribute.nodeValue = value;
+                        } catch(e) {
+                            throw new Error(e);
+                        }
+                        
                         Dom.#reconfig(accumulator, last, node, value, "attr", attribute.name);
                     } else {
                         throw new Error();  // Not support
+                    }
+                } else {
+                    let begin = 0;
+                    let start = 0;
+                    const s = value;
+                    const elements = [];
+                    while((start = s.indexOf("{{", begin)) !== -1) {
+                        if(begin !== start) elements.push(s.substring(begin, start));
+                        const { end, key, type, accumulator, last, array } = Dom.#parse(s, start, config, context);
+                        if(type === '' || type === '.') {
+                            if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
+                            const value = Dom.#value(accumulator, last);
+                            elements.push(value);
+                            Dom.#reconfig(accumulator, last, node, value, "attr:sub", attribute.name);
+                        } else {
+                            throw new Error();  // Unsupported
+                        }
+                        begin = end;
+                    }
+                    
+                    if(elements.length > 0) {
+                        if(begin !== s.length) elements.push(s.substring(begin));
+                        attribute.nodeValue = attribute.value = elements.join("");
                     }
                 }
             }
             if(node.nodeName.toLowerCase() === "script") {
                 const script = document.createElement("script");
                 for(let i = 0; i < node.attributes.length; i++) {
-                    // console.log(node.attributes[i].value);
-                    // console.log(node.attributes.nodee);
                     script.setAttribute(node.attributes[i].name, node.attributes[i].value);
                 }
                 script.textContext = node.textContext;
@@ -267,9 +306,6 @@ export default class Dom {
                         script.appendChild(node.childNodes[i].cloneNode(true));
                     }
                 }
-                // console.log(1, node.textContext);
-                // console.log(1, node.value);
-                // console.log(1, node.nodeValue);
                 parent.replaceChild(script, node);
                 node = script;
             }
@@ -280,9 +316,10 @@ export default class Dom {
                 throw new Error();
             }
         }
-        const o = condition[condition.length - 1];
-        if(condition.length === 0 || Array.isArray(o.accumulator[o.last]) === false) {
-            if(node.childNodes) {
+
+        const o = condition.length > 0 ? condition[condition.length - 1] : null
+        if(o === null || Array.isArray(o.accumulator[o.last]) === false) {
+            if(node && node.childNodes) {
                 for(let child = node.firstChild; child ; child = child.nextSibling) {
                     child = Dom.#render(document, child, node, config, context, condition);
                 }
@@ -297,6 +334,6 @@ export default class Dom {
         const output = Dom.#render(document, document, null, config, context, condition);
         if(condition.length !== 0) throw new Error();
 
-        return { output, html: Dom.#serializer.serializeToString(output) };
+        return { dom: output, html: Dom.#serializer.serializeToString(output) };
     }
 }

@@ -61,7 +61,7 @@
         },
         "footer": {
             "description": "Generate a website just by filling in the contents",
-            "license": "license.html",
+            "license": "LICENSE",
             "organization": {
                 "title": "@novemberizing",
                 "link": "https://github.com/novemberizing"
