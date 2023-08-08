@@ -2,6 +2,7 @@
     --default-min-width: 360px;
     --default-color: #222222;
     --default-font: "REM", sans-serif;
+    --default-z-index: 100;
 }
 
 body, html {
@@ -283,4 +284,195 @@ h6 {
     .novemberizing.modal .modal-body h4 sup {
         padding-top: 0px;
     }
+}
+
+.novemberizing.static.controller.container {
+    position: fixed;
+    /* top: 120px; */
+    bottom: 50px;
+    left: 50%;
+    width: 300px;
+    transform: translate(-50%, 0);
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #000000;
+    z-index: calc(var(--default-z-index) - 1);
+    opacity: .8;
+    background-color: #ffffff;
+    color: #808080;
+    border-radius: 5px;
+}
+.novemberizing.static.controller-body {
+    overflow-y: auto;
+    max-height: 100px;
+
+}
+@media (min-width: 991px) {
+    .novemberizing.static.controller.container {
+        position: fixed;
+        right: 50px;
+        left: auto;
+        top: 120px;
+        bottom: auto;
+        transform: none;
+    }
+    .novemberizing.static.controller-body {
+        max-height: 300px;
+    }
+}
+.novemberizing.static.controller.container.hide {
+    display: none;
+}
+
+.novemberizing.static.controller.container
+.novemberizing.static.controller.container.hide {
+    display: block;
+}
+
+.novemberizing.static.controller.container .row {
+    padding: 0px;
+    margin: 0px;
+}
+
+.novemberizing.static.controller.container .row.show {
+    display: flex;
+}
+
+.novemberizing.static.controller.container .row.hide {
+    display: none;
+}
+
+.novemberizing.static.controller.container .row .col
+.novemberizing.static.controller.container .row .col-4,
+.novemberizing.static.controller.container .row .col-6,
+.novemberizing.static.controller.container .row .col-8,
+.novemberizing.static.controller.container .row .col-12 {
+    font-size: .8rem;
+    padding: 0px;
+    margin: 0px;
+}
+
+.novemberizing.static.controller.container .row .col button.btn-link
+.novemberizing.static.controller.container .row .col-4 button.btn-link,
+.novemberizing.static.controller.container .row .col-6 button.btn-link,
+.novemberizing.static.controller.container .row .col-8 button.btn-link,
+.novemberizing.static.controller.container .row .col-12 button.btn-link {
+    font-size: .8rem;
+    padding: 0px;
+    color: #222222;
+}
+
+.novemberizing.static.controller.container .row .col button.btn-link:hover
+.novemberizing.static.controller.container .row .col-4 button.btn-link:hover,
+.novemberizing.static.controller.container .row .col-6 button.btn-link:hover,
+.novemberizing.static.controller.container .row .col-8 button.btn-link:hover,
+.novemberizing.static.controller.container .row .col-12 button.btn-link:hover {
+    font-size: .8rem;
+    padding: 0px;
+    color: #222222;
+}
+
+.novemberizing.static.controller.container .row.title {
+    border-bottom: 1px solid #444444;
+}
+
+.novemberizing.static.controller.container .row.title .col
+.novemberizing.static.controller.container .row.title .col-4,
+.novemberizing.static.controller.container .row.title .col-6,
+.novemberizing.static.controller.container .row.title .col-8,
+.novemberizing.static.controller.container .row.title .col-12 {
+    font-weight: bold;
+    padding: 8px;
+    margin: 0px;
+}
+
+.novemberizing.static.controller.container .row.footer {
+    border-top: 1px solid #222222;
+}
+
+.novemberizing.static.controller.container .row.footer .col
+.novemberizing.static.controller.container .row.footer .col-4,
+.novemberizing.static.controller.container .row.footer .col-6,
+.novemberizing.static.controller.container .row.footer .col-8,
+.novemberizing.static.controller.container .row.footer .col-12 {
+    font-weight: bold;
+    padding: 8px;
+    margin: 0px;
+    text-align: right;
+}
+
+/** novemberizing static link */
+li.novemberizing.static.link.hide {
+    display: none;
+}
+li.novemberizing.static.link
+li.novemberizing.static.link.show {
+    display: block;
+}
+
+/** novemberizing static view */
+iframe.novemberizing.static.view {
+    position: absolute;
+    overflow: hidden;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    min-width: var(--default-min-width);
+    /** TODO: BORDER BOTTOM SHADOW 적용 : DONE */
+    box-shadow: 0px 12px 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: calc(var(--default-z-index) - 2);
+}
+
+iframe.novemberizing.static.view
+iframe.novemberizing.static.view.show {
+    display: block;
+}
+iframe.novemberizing.static.view.hide {
+    display: none;
+}
+/** form */
+.dropdown.novemberizing.static.controller-dropdown {
+    font-size: .8rem;
+}
+.dropdown.novemberizing.static.controller-dropdown button {
+    border-radius: 0px;
+    font-size: .8rem;
+    padding: 0px;
+    width: 100%;
+    text-align: left;
+}
+.dropdown.novemberizing.static.controller-dropdown button.btn.btn-link {
+    color: #222222;
+}
+.dropdown.novemberizing.static.controller-dropdown button.btn.btn-link:hover {
+    color: #222222;
+}
+.dropdown.novemberizing.static.controller-dropdown ul {
+    border-radius: 0px;
+    width: 100%;
+    padding: 4px;
+    opacity: .9;
+}
+.dropdown.novemberizing.static.controller-dropdown .dropdown-toggle::after {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+input.novemberizing.static.controller-input.form-control {
+    border-style: none;
+    border-width: 0px;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: #FFFFFF00;
+    padding: 0px;
+    font-size: 1em;
+}
+input.novemberizing.static.controller-input.form-control:focus {
+    border-style: none;
+    border-width: 0px;
+    box-shadow: none;
+    border-radius: 0px;
+    padding: 0px;
+    font-size: 1em;
 }

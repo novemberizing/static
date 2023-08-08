@@ -1,66 +1,62 @@
 {
-    "Readme.txt": "| true | boolean,file |",
+    "Readme.txt": "| true | boolean,file | |",
     "assets": {
-        "scss": "| false | boolean,dir |",
+        "scss": "| false | boolean,dir | |",
         "vendor": {
-            "pho-email-form": "| false | boolean,file |"
+            "pho-email-form": "| false | boolean,file | |"
         }
     },
-    "forms": "| false | boolean,dir |",
+    "forms": "| false | boolean,dir | |",
     "index.html": {
-        "title": "| Maundy - Bootstrap Coming Soon Template | text |",
-        "description": "| | text |",
-        "keywords": "| | text |",
-        "favicon": "| assets/img/favicon.png | url,img |",
+        "title": "| Maundy - Bootstrap Coming Soon Template | text | |",
+        "description": "| | text | content |",
+        "keywords": "| | text | content |",
+        "favicon": "| assets/img/favicon.png | url,img | href |",
         "apple": {
-            "icon": "| assets/img/apple-touch-icon.png | url,img |"
+            "icon": "| assets/img/apple-touch-icon.png | url,img | href |"
         },
         "header": {
-            "title": "| Mau\\|ndy | text |",
-            "description": "| We're working hard to improve our website and we'll ready to launch after | text |",
-            "date": "| 2023/12/3 | date |",
+            "title": "| Mau\\|ndy | text | |",
+            "description": "| We're working hard to improve our website and we'll ready to launch after | text | |",
+            "date": "| 2023/12/3 | date,text | data-count |",
             "subscribe": {
-                "title": "| Subscribe now to get the latest updates! | text |",
-                "loading": "| Loading | text |",
-                "error": "| error | text |",
-                "sent": "| Your notification request was sent. Thank you! | text |"
+                "title": "| Subscribe now to get the latest updates! | text | |",
+                "loading": "| Loading | text | |",
+                "error": "| error | text | |",
+                "sent": "| Your notification request was sent. Thank you! | text | |"
             },
             "social": {
-                "twitter": "| # | url,twitter |",
-                "facebook": "| # | url,facebook |",
-                "instagram": "| # | url,instagram |",
-                "linkedin": "| # | url,linkedin |"
+                "twitter": "| # | url,twitter | href |",
+                "facebook": "| # | url,facebook | href |",
+                "instagram": "| # | url,instagram | href |",
+                "linkedin": "| # | url,linkedin | href |"
             }
         },
         "about": {
-            "description": "| Illo velit quae dolorem voluptate pireda notila set. Corrupti voluptatum tempora iste ratione deleniti corrupti nostrum ut | text |",
+            "description": "| Illo velit quae dolorem voluptate pireda notila set. Corrupti voluptatum tempora iste ratione deleniti corrupti nostrum ut | text | |",
             "items": [
                 {
-                    "icon": "| bi-briefcase | bootstrap.icon |",
-                    "title": "| Lorem Ipsum | text |",
-                    "description": "| Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident | text |"
+                    "icon": "| bi-briefcase | bootstrap.icon | class |",
+                    "title": "| Lorem Ipsum | text | |",
+                    "description": "| Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident | text | |"
                 },
                 {
-                    "icon": "| bi-bar-chart | bootstrap.icon |",
-                    "title": "| Dolor Sitema | text |",
-                    "description": "| Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata | text |"
+                    "icon": "| bi-bar-chart | bootstrap.icon | class |",
+                    "title": "| Dolor Sitema | text | |",
+                    "description": "| Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata | text | |"
                 },
                 {
-                    "icon": "| bi-brightness-high | bootstrap.icon |",
-                    "title": "| Sed ut perspiciatis | text |",
-                    "description": "| Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur | text |"
+                    "icon": "| bi-brightness-high | bootstrap.icon | class |",
+                    "title": "| Sed ut perspiciatis | text | |",
+                    "description": "| Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur | text | |"
                 }
             ]
         },
         "contact": {
-            "address": "| A108 Adam Street, New York, NY 535022 | text |",
-            "email": "| info@example.com | email |",
-            "phone": "| +1 5589 55488 55 | phone |",
-            "map": "| https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621 | url,map |"
-        },
-        "footer": {
-            "copyright": "| true | boolean,license |",
-            "credits": "| true | boolean,credit |"
+            "address": "| A108 Adam Street, New York, NY 535022 | text | |",
+            "email": "| info@example.com | email,text | |",
+            "phone": "| +1 5589 55488 55 | phone,text | |",
+            "map": "| https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621 | url,map | src |"
         }
     }
 }

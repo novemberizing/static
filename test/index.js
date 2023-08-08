@@ -1,3 +1,7 @@
+import novemberizing from "../src/index.js";
+
 describe("novemberizing's static", () => {
-    it("hello", () => {});
+    it("check", () => {
+        console.log(novemberizing);
+    });
 });

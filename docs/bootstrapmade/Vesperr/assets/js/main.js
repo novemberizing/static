@@ -226,6 +226,7 @@
     selector: '.portfolio-lightbox'
   });
 
+  console.log(Swiper);
   /**
    * Portfolio details slider
    */
@@ -260,4 +261,8 @@
    */
   new PureCounter();
 
+  console.log(1);
+
 })()
+
+console.log(1);

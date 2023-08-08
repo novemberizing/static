@@ -1,509 +1,506 @@
 {
-    "inner-page.html": false,
-    "portfolio-details.html": false,
-    "Readme.txt": true,
-    "forms": false,
+    "inner-page.html": "| false | file | |",
+    "portfolio-details.html": "| false | file | |",
+    "Readme.txt": "| true | file | |",
+    "forms": "| false | file | |",
     "assets": {
-        "scss": false,
+        "scss": "| false | dir | |",
         "vendor": {
-            "php-email-form": false
+            "php-email-form": "| false | dir | |"
         }
     },
     "index.html": {
-        "title": "Vesperr Bootstrap Template - Index",
-        "description": "",
-        "keywords": "",
-        "favicon": "assets/img/favicon.png",
+        "title": "| Vesperr Bootstrap Template - Index | text | |",
+        "description": "| | text | content |",
+        "keywords": "| | text | content |",
+        "favicon": "| assets/img/favicon.png | img,url | href |",
         "apple": {
-            "icon": "assets/img/apple-touch-icon.png"
+            "icon": "| assets/img/apple-touch-icon.png | img,url | href |"
         },
-        "license": true,
-        "menu": true,
+        "license": "| true | boolean | |",
+        "menu": "| true | boolean | |",
         "home": {
-            "title": "Grow your business with Vesperr",
-            "description": "We are team of talented designers making websites with Bootstrap",
-            "image": "assets/img/hero-img.png"
+            "title": "| Grow your business with Vesperr | text | |",
+            "description": "| We are team of talented designers making websites with Bootstrap | text | |",
+            "image": "| assets/img/hero-img.png | img,url | src |"
         },
         "client": {
             "items": [
                 {
-                    "image": "assets/img/clients/client-1.png",
-                    "delay": 0
+                    "image": "| assets/img/clients/client-1.png | img,url | src |",
+                    "delay": "| 0 | text | data-aos-delay |"
                 },
                 {
-                    "image": "assets/img/clients/client-2.png",
-                    "delay": 100
+                    "image": "| assets/img/clients/client-2.png | img,url | src |",
+                    "delay": "| 100 | text | data-aos-delay |"
                 },
                 {
-                    "image": "assets/img/clients/client-3.png",
-                    "delay": 200
+                    "image": "| assets/img/clients/client-3.png | img,url | src |",
+                    "delay": "| 200 | text | data-aos-delay |"
                 },
                 {
-                    "image": "assets/img/clients/client-4.png",
-                    "delay": 300
+                    "image": "| assets/img/clients/client-4.png | img,url | src |",
+                    "delay": "| 300 | text | data-aos-delay |"
                 },
                 {
-                    "image": "assets/img/clients/client-5.png",
-                    "delay": 400
+                    "image": "| assets/img/clients/client-5.png | img,url | src |",
+                    "delay": "| 400 | text | data-aos-delay |"
                 },
                 {
-                    "image": "assets/img/clients/client-6.png",
-                    "delay": 500
+                    "image": "| assets/img/clients/client-6.png | img,url | src |",
+                    "delay": "| 500 | text | data-aos-delay |"
                 }
             ]
         },
         "about": {
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "description": "| Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. | text | |",
             "items": [
-                " Ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                " Duis aute irure dolor in reprehenderit in voluptate velit",
-                " Ullamco laboris nisi ut aliquip ex ea commodo consequat"
+                "| Ullamco laboris nisi ut aliquip ex ea commodo consequat | text | |",
+                "| Duis aute irure dolor in reprehenderit in voluptate velit | text | |",
+                "| Ullamco laboris nisi ut aliquip ex ea commodo consequat | text | |"
             ],
-            "details": "Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "more": "#"
+            "details": "| Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. | text | |",
+            "more": "| # | url | href |"
         },
         "count": {
-            "image": "assets/img/counts-img.svg",
+            "image": "| assets/img/counts-img.svg | img,url | src |",
             "items": [
                 {
-                    "icon": "bi-emoji-smile",
-                    "count": 65,
-                    "title": "Happy Clients",
-                    "description": "consequuntur voluptas nostrum aliquid ipsam architecto ut."
+                    "icon": "| bi-emoji-smile | bootstrap.icon | class |",
+                    "count": "| 65 | text,number | data-purecounter-end |",
+                    "title": "| Happy Clients | text | |",
+                    "description": "| consequuntur voluptas nostrum aliquid ipsam architecto ut. | text | |"
                 },
                 {
-                    "icon": "bi-journal-richtext",
-                    "count": 85,
-                    "title": "Projects",
-                    "description": "adipisci atque cum quia aspernatur totam laudantium et quia dere tan"
+                    "icon": "| bi-journal-richtext | bootstrap.icon | class |",
+                    "count": "| 85 | text,number | data-purecounter-end |",
+                    "title": "| Projects | text | |",
+                    "description": "| adipisci atque cum quia aspernatur totam laudantium et quia dere tan | text | |"
                 },
                 {
-                    "icon": "bi-clock",
-                    "count": 18,
-                    "title": "Years of experience",
-                    "description": "aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel"
+                    "icon": "| bi-clock | bootstrap.icon | class |",
+                    "count": "| 18 | text,number | data-purecounter-end |",
+                    "title": "| Years of experience | text | |",
+                    "description": "| aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel | text | |"
                 },
                 {
-                    "icon": "bi-award",
-                    "count": 15,
-                    "title": "Awards",
-                    "description": "rerum asperiores dolor alias quo reprehenderit eum et nemo pad der"
+                    "icon": "| bi-award | bootstrap.icon | class |",
+                    "count": "| 15 | text,number | data-purecounter-end |",
+                    "title": "| Awards | text | |",
+                    "description": "| rerum asperiores dolor alias quo reprehenderit eum et nemo pad der | text | |"
                 }
             ]
         },
         "service": {
-            "description": "Magnam dolores commodi suscipit eius consequatur ex aliquid fug",
+            "description": "| Magnam dolores commodi suscipit eius consequatur ex aliquid fug | text | |",
             "items": [
                 {
-                    "delay": 100,
-                    "icon": "bxl-dribbble",
-                    "link": "#",
-                    "title": "Lorem Ipsum",
-                    "description": "Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi"
+                    "delay": "| 100 | text,number | data-aos-delay |",
+                    "icon": "| bxl-dribbble | bootstrap.icon | class |",
+                    "link": "| # | url | href |",
+                    "title": "| Lorem Ipsum | text | |",
+                    "description": "| Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi | text | |"
                 },
                 {
-                    "delay": 200,
-                    "icon": "bx-file",
-                    "link": "#",
-                    "title": "Sed ut perspiciatis",
-                    "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore"
+                    "delay": "| 200 | text,number | data-aos-delay |",
+                    "icon": "| bx-file | bootstrap.icon | class |",
+                    "link": "| # | url | href |",
+                    "title": "| Sed ut perspiciatis | text | |",
+                    "description": "| Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore | text | |"
                 },
                 {
-                    "delay": 300,
-                    "icon": "bx-tachometer",
-                    "link": "#",
-                    "title": "Magni Dolores",
-                    "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia"
+                    "delay": "| 300 | text,number | data-aos-delay |",
+                    "icon": "| bx-tachometer | bootstrap.icon | |",
+                    "link": "| # | url | href |",
+                    "title": "| Magni Dolores | text | |",
+                    "description": "| Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia | text | |"
                 },
                 {
-                    "delay": 400,
-                    "icon": "bx-world",
-                    "link": "#",
-                    "title": "Nemo Enim",
-                    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis"
+                    "delay": "| 400 | text,number | data-aos-delay |",
+                    "icon": "| bx-world | bootstrap.icon | |",
+                    "link": "| # | url | href |",
+                    "title": "| Nemo Enim | text | |",
+                    "description": "| At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis | text | |"
                 }
             ]
         },
         "more": {
             "items": [
                 {
-                    "image": "assets/img/more-services-1.jpg",
-                    "delay": 100,
-                    "link": "#",
-                    "title": "Lobira Duno",
-                    "description": "Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua.",
-                    "more": "#"
+                    "image": "| assets/img/more-services-1.jpg | url | style.background-image |",
+                    "delay": "| 100 | text,number | data-aos-delay |",
+                    "link": "| # | url | href |",
+                    "title": "| Lobira Duno | text | |",
+                    "description": "| Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. | text | |",
+                    "more": "| # | url | href |"
                 },
                 {
-                    "image": "assets/img/more-services-2.jpg",
-                    "delay": 200,
-                    "link": "#",
-                    "title": "Limere Radses",
-                    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem.",
-                    "more": "#"
+                    "image": "| assets/img/more-services-2.jpg | url | style.background-image |",
+                    "delay": "| 200 | text,number | data-aos-delay |",
+                    "link": "| # | url | href |",
+                    "title": "| Limere Radses | text | |",
+                    "description": "| Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem. | text | |",
+                    "more": "| # | url | href |"
                 },
                 {
-                    "image": "assets/img/more-services-3.jpg",
-                    "delay": 100,
-                    "link": "#",
-                    "title": "Nive Lodo",
-                    "description": "Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores.",
-                    "more": "#"
+                    "image": "| assets/img/more-services-3.jpg | url | style.background-image |",
+                    "delay": "| 100 | text,number | data-aos-delay |",
+                    "link": "| # | url | href |",
+                    "title": "| Nive Lodo | text | |",
+                    "description": "| Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores. | text | |",
+                    "more": "| # | url | href |"
                 },
                 {
-                    "image": "assets/img/more-services-4.jpg",
-                    "delay": 200,
-                    "link": "#",
-                    "title": "Pale Treda",
-                    "description": "Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium voluptatem.",
-                    "more": "#"
+                    "image": "| assets/img/more-services-4.jpg | url | style.background-image |",
+                    "delay": "| 200 | text,number | data-aos-delay |",
+                    "link": "| # | url | href |",
+                    "title": "| Pale Treda | text | |",
+                    "description": "| Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium voluptatem. | text | |",
+                    "more": "| # | url | |"
                 }
             ]
         },
         "feature": {
-            "description": "Necessitatibus eius consequatur ex aliquid fuga eum quidem",
+            "description": "| Necessitatibus eius consequatur ex aliquid fuga eum quidem | text | |",
             "items": [
                 {
-                    "icon": "ri-store-line",
-                    "style": "style=\"color: #ffbb2c;\"",
-                    "link": "#",
-                    "title": "Lorem Ipsum"
+                    "icon": "| ri-store-line | text,icon | class |",
+                    "style": "| style=\"color: #ffbb2c;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Lorem Ipsum | text | |"
                 },
                 {
-                    "icon": "ri-bar-chart-box-line",
-                    "style": "style=\"color: #5578ff;\"",
-                    "link": "#",
-                    "title": "Dolor Sitema"
+                    "icon": "| ri-bar-chart-box-line | text,icon | class |",
+                    "style": "| style=\"color: #5578ff;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Dolor Sitema | text | |"
                 },
                 {
-                    "icon": "ri-calendar-todo-line",
-                    "style": "style=\"color: #e80368;\"",
-                    "link": "#",
-                    "title": "Sed perspiciatis"
+                    "icon": "| ri-calendar-todo-line | text,icon | class |",
+                    "style": "| style=\"color: #e80368;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Sed perspiciatis | text | |"
                 },
                 {
-                    "icon": "ri-paint-brush-line",
-                    "style": "style=\"color: #e361ff;\"",
-                    "link": "#",
-                    "title": "Magni Dolores"
+                    "icon": "| ri-paint-brush-line | text,icon | class |",
+                    "style": "| style=\"color: #e361ff;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Magni Dolores | text | |"
                 },
                 {
-                    "icon": "ri-database-2-line",
-                    "style": "style=\"color: #47aeff;\"",
-                    "link": "#",
-                    "title": "Nemo Enim"
+                    "icon": "| ri-database-2-line | text,icon | class |",
+                    "style": "| style=\"color: #47aeff;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Nemo Enim | text | |"
                 },
                 {
-                    "icon": "ri-gradienter-line",
-                    "style": "style=\"color: #ffa76e;\"",
-                    "link": "#",
-                    "title": "Eiusmod Tempor"
+                    "icon": "| ri-gradienter-line | text,icon | class |",
+                    "style": "| style=\"color: #ffa76e;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Eiusmod Tempor | text | |"
                 },
                 {
-                    "icon": "ri-file-list-3-line",
-                    "style": "style=\"color: #11dbcf;\"",
-                    "link": "#",
-                    "title": "Midela Teren"
+                    "icon": "| ri-file-list-3-line | text,icon | class |",
+                    "style": "| style=\"color: #11dbcf;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Midela Teren | text | |"
                 },
                 {
-                    "icon": "ri-price-tag-2-line",
-                    "style": "style=\"color: #4233ff;\"",
-                    "link": "#",
-                    "title": "Pira Neve"
+                    "icon": "| ri-price-tag-2-line | text,icon | class |",
+                    "style": "| style=\"color: #4233ff;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Pira Neve | text | |"
                 },
                 {
-                    "icon": "ri-anchor-line",
-                    "style": "style=\"color: #b2904f;\"",
-                    "link": "#",
-                    "title": "Dirada Pack"
+                    "icon": "| ri-anchor-line | text,icon | class |",
+                    "style": "| style=\"color: #b2904f;\" | style,text | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Dirada Pack | text | |"
                 },
                 {
-                    "icon": "ri-disc-line",
-                    "style": "style=\"color: #b20969;\"",
-                    "link": "#",
-                    "title": "Moton Ideal"
+                    "icon": "| ri-disc-line | text,icon | class |",
+                    "style": "| style=\"color: #b20969;\" | style,text | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Moton Ideal | text | |"
                 },
                 {
-                    "icon": "ri-base-station-line",
-                    "style": "style=\"color: #ff5828;\"",
-                    "link": "#",
-                    "title": "Verdo Park"
+                    "icon": "| ri-base-station-line | text,icon | class |",
+                    "style": "| style=\"color: #ff5828;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Verdo Park | text | |"
                 },
                 {
-                    "icon": "ri-fingerprint-line",
-                    "style": "style=\"color: #29cc61;\"",
-                    "link": "#",
-                    "title": "Flavor Nivelanda"
+                    "icon": "| ri-fingerprint-line | text,icon | class |",
+                    "style": "| style=\"color: #29cc61;\" | text,style | style.color |",
+                    "link": "| # | url | href |",
+                    "title": "| Flavor Nivelanda | text | |"
                 }
             ]
         },
         "testimonial": {
-            "description": "Magnam dolores commodi suscipit eum quidem consectetur velit",
+            "description": "| Magnam dolores commodi suscipit eum quidem consectetur velit | text | |",
             "items": [
                 {
-                    "image": "assets/img/testimonials/testimonials-1.jpg",
-                    "name": "Saul Goodman",
-                    "job": "Ceo &amp; Founder",
-                    "description": "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper."
+                    "image": "| assets/img/testimonials/testimonials-1.jpg | img,url | src |",
+                    "name": "| Saul Goodman | text | |",
+                    "job": "| Ceo &amp; Founder | text | |",
+                    "description": "| Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper. | text | |"
                 },
                 {
-                    "image": "assets/img/testimonials/testimonials-2.jpg",
-                    "name": "Sara Wilsson",
-                    "job": "Designer",
-                    "description": "Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa."
+                    "image": "| assets/img/testimonials/testimonials-2.jpg | img,url | src |",
+                    "name": "| Sara Wilsson | text | |",
+                    "job": "| Designer | text | |",
+                    "description": "| Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa. | text | |"
                 },
                 {
-                    "image": "assets/img/testimonials/testimonials-3.jpg",
-                    "name": "Jena Karlis",
-                    "job": "Store Owner",
-                    "description": "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim."
+                    "image": "| assets/img/testimonials/testimonials-3.jpg | img,url | src |",
+                    "name": "| Jena Karlis | text | |",
+                    "job": "| Store Owner | text | |",
+                    "description": "| Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim. | text | |"
                 },
                 {
-                    "image": "assets/img/testimonials/testimonials-4.jpg",
-                    "name": "Matt Brandon",
-                    "job": "Freelancer",
-                    "description": "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam."
+                    "image": "| assets/img/testimonials/testimonials-4.jpg | img,url | src |",
+                    "name": "| Matt Brandon | text | |",
+                    "job": "| Freelancer | text | |",
+                    "description": "| Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam. | text | |"
                 },
                 {
-                    "image": "assets/img/testimonials/testimonials-5.jpg",
-                    "name": "John Larson",
-                    "job": "Entrepreneur",
-                    "description": "Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid."
+                    "image": "| assets/img/testimonials/testimonials-5.jpg | img,url | src |",
+                    "name": "| John Larson | text | |",
+                    "job": "| Entrepreneur | text | |",
+                    "description": "| Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid. | text | |"
                 }
             ]
         },
         "portfolio": {
-            "description": "Necessitatibus eius consequatur ex aliquid fuga eum quidem",
+            "description": "| Necessitatibus eius consequatur ex aliquid fuga eum quidem |",
             "items": [
                 {
-                    "filter": "app",
-                    "image": "assets/img/portfolio/portfolio-1.jpg",
-                    "title": "App 1",
-                    "link": "#"
+                    "filter": "| app | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-1.jpg | img,url | src |",
+                    "title": "| App 1 | text | |",
+                    "link": "| # | url | href |"
                 },
                 {
-                    "filter": "web",
-                    "image": "assets/img/portfolio/portfolio-2.jpg",
-                    "title": "Web 3",
-                    "link": "#"
+                    "filter": "| web | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-2.jpg | img,url | src |",
+                    "title": "| Web 3 | text | |",
+                    "link": "| # | url | href |"
                 },
                 {
-                    "filter": "app",
-                    "image": "assets/img/portfolio/portfolio-3.jpg",
-                    "title": "App 2",
-                    "link": "#"
+                    "filter": "| app | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-3.jpg | img,url | src |",
+                    "title": "| App 2 | text | |",
+                    "link": "| # | url | href |"
                 },
                 {
-                    "filter": "card",
-                    "image": "assets/img/portfolio/portfolio-4.jpg",
-                    "title": "Card 2",
-                    "link": "#"
+                    "filter": "| card | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-4.jpg | img,url | src |",
+                    "title": "| Card 2 | text | |",
+                    "link": "| # | url | href |"
                 },
                 {
-                    "filter": "web",
-                    "image": "assets/img/portfolio/portfolio-5.jpg",
-                    "title": "Web 2",
-                    "link": "#"
+                    "filter": "| web | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-5.jpg | img,url | src |",
+                    "title": "| Web 2 |",
+                    "link": "| # | url | href |"
                 },
                 {
-                    "filter": "app",
-                    "image": "assets/img/portfolio/portfolio-6.jpg",
-                    "title": "App 3",
-                    "link": "#"
+                    "filter": "| app | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-6.jpg | img,url | src |",
+                    "title": "| App 3 | texthrefext |"
                 },
                 {
-                    "filter": "card",
-                    "image": "assets/img/portfolio/portfolio-7.jpg",
-                    "title": "Card 1",
-                    "link": "#"
+                    "filter": "| card | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-7.jpg | img,url | src |",
+                    "title": "| Card 1 | text | |",
+                    "link": "| # | url | href |"
                 },
                 {
-                    "filter": "card",
-                    "image": "assets/img/portfolio/portfolio-8.jpg",
-                    "title": "Card 3",
-                    "link": "#"
+                    "filter": "| card | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-8.jpg | img,url | src |",
+                    "title": "| Card 3 | text | |",
+                    "link": "| # | url | href |"
                 },
                 {
-                    "filter": "web",
-                    "image": "assets/img/portfolio/portfolio-9.jpg",
-                    "title": "Web 3",
-                    "link": "#"
+                    "filter": "| web | text | class |",
+                    "image": "| assets/img/portfolio/portfolio-9.jpg | img,url | src |",
+                    "title": "| Web 3 | text | |",
+                    "link": "| # | url | |"
                 }
             ]
         },
         "team": {
-            "description": "Necessitatibus eius consequatur ex aliquid fuga eum quidem",
+            "description": "| Necessitatibus eius consequatur ex aliquid fuga eum quidem | text | |",
             "items": [
                 {
-                    "delay": 100,
-                    "image": "assets/img/team/team-1.jpg",
-                    "twitter": "#",
-                    "facebook": "#",
-                    "instagram": "#",
-                    "linkedin": "#",
-                    "name": "Walter White",
-                    "job": "Chief Executive Officer"
+                    "delay": "| 100 | text,number | data-aos-delay |",
+                    "image": "| assets/img/team/team-1.jpg | img,url | src |",
+                    "twitter": "| # | url | href |",
+                    "facebook": "| # | url | href |",
+                    "instagram": "| # | url | href |",
+                    "linkedin": "| # | url | href |",
+                    "name": "| Walter White | text | |",
+                    "job": "| Chief Executive Officer | text | |"
                 },
                 {
-                    "delay": 200,
-                    "image": "assets/img/team/team-2.jpg",
-                    "twitter": "#",
-                    "facebook": "#",
-                    "instagram": "#",
-                    "linkedin": "#",
-                    "name": "Sarah Jhonson",
-                    "job": "Product Manager"
+                    "delay": "| 200 | text,number | data-aos-delay |",
+                    "image": "| assets/img/team/team-2.jpg | img,url | src |",
+                    "twitter": "| # | url | href |",
+                    "facebook": "| # | url | href |",
+                    "instagram": "| # | url | href |",
+                    "linkedin": "| # | url | href |",
+                    "name": "| Sarah Jhonson | text | |",
+                    "job": "| Product Manager | text | |"
                 },
                 {
-                    "delay": 300,
-                    "image": "assets/img/team/team-3.jpg",
-                    "twitter": "#",
-                    "facebook": "#",
-                    "instagram": "#",
-                    "linkedin": "#",
-                    "name": "William Anderson",
-                    "job": "CTO"
+                    "delay": "| 300 | text,number | data-aos-delay |",
+                    "image": "| assets/img/team/team-3.jpg | img,url | src |",
+                    "twitter": "| # | url | href |",
+                    "facebook": "| # | url | href |",
+                    "instagram": "| # | url | href |",
+                    "linkedin": "| # | url | href |",
+                    "name": "| William Anderson | text | |",
+                    "job": "| CTO | text | |"
                 },
                 {
-                    "delay": 400,
-                    "image": "assets/img/team/team-4.jpg",
-                    "twitter": "#",
-                    "facebook": "#",
-                    "instagram": "#",
-                    "linkedin": "#",
-                    "name": "Amanda Jepson",
-                    "job": "Accountant"
+                    "delay": "| 400 | text,number | data-aos-delay |",
+                    "image": "| assets/img/team/team-4.jpg | img,url | src |",
+                    "twitter": "| # | url | href |",
+                    "facebook": "| # | url | href |",
+                    "instagram": "| # | url | href |",
+                    "linkedin": "| # | url | href |",
+                    "name": "| Amanda Jepson | text | |",
+                    "job": "| Accountant | text | |"
                 }
             ]
         },
         "pricing": {
-            "description": "Sit sint consectetur velit nemo qui impedit suscipit alias ea",
+            "description": "| Sit sint consectetur velit nemo qui impedit suscipit alias ea | text | |",
             "items": [
                 {
-                    "delay": 200,
-                    "title": "Free",
-                    "price": "<sup>$</sup>0<span> / month</span>",
+                    "delay": "| 200 | text,number | data-aos-delay |",
+                    "title": "| Free | text | |",
+                    "price": "| <sup>$</sup>0<span> / month</span> | text | |",
                     "items": [
                         {
-                            "title": "Aida dere"
+                            "title": "| Aida dere | text | |"
                         },
                         {
-                            "title": "Nec feugiat nisl"
+                            "title": "| Nec feugiat nisl | text | |"
                         },
                         {
-                            "title": "Nulla at volutpat dola"
+                            "title": "| Nulla at volutpat dola | text | |"
                         },
                         {
-                            "title": "Pharetra massa",
-                            "not": "na"
+                            "title": "| Pharetra massa | text | |",
+                            "not": "| na | text | class |"
                         },
                         {
-                            "title": "Massa ultricies mi",
-                            "not": "na"
+                            "title": "| Massa ultricies mi | text | |",
+                            "not": "| na | text | class |"
                         }
                     ]
                 },
                 {
-                    "delay": 100,
-                    "title": "Business",
-                    "price": "<sup>$</sup>19<span> / month</span>",
+                    "delay": "| 100 | text,number | data-aos-delay |",
+                    "title": "| Business | text | |",
+                    "price": "| <sup>$</sup>19<span> / month</span> | text | |",
                     "items": [
                         {
-                            "title": "Aida dere"
+                            "title": "| Aida dere | text | |"
                         },
                         {
-                            "title": "Nec feugiat nisl"
+                            "title": "| Nec feugiat nisl | text | |"
                         },
                         {
-                            "title": "Nulla at volutpat dola"
+                            "title": "| Nulla at volutpat dola | text | |"
                         },
                         {
-                            "title": "Pharetra massa"
+                            "title": "| Pharetra massa | text | |"
                         },
                         {
-                            "title": "Massa ultricies mi",
-                            "not": "na"
+                            "title": "| Massa ultricies mi | text | |",
+                            "not": "| na | text | class |"
                         }
                     ],
-                    "link": "#"
+                    "link": "| # | url | href |"
                 },
                 {
-                    "delay": 200,
-                    "title": "Developer",
-                    "price": "<sup>$</sup>29<span> / month</span>",
+                    "delay": "| 200 | text,number | data-aos-delay |",
+                    "title": "| Developer | text | |",
+                    "price": "| <sup>$</sup>29<span> / month</span> | text | |",
                     "items": [
                         {
-                            "title": "Aida dere"
+                            "title": "| Aida dere | text | |"
                         },
                         {
-                            "title": "Nec feugiat nisl"
+                            "title": "| Nec feugiat nisl | text | |"
                         },
                         {
-                            "title": "Nulla at volutpat dola"
+                            "title": "| Nulla at volutpat dola | text | |"
                         },
                         {
-                            "title": "Pharetra massa"
+                            "title": "| Pharetra massa | text | |"
                         },
                         {
-                            "title": "Massa ultricies mi"
+                            "title": "| Massa ultricies mi | text | |"
                         }
                     ],
-                    "link": "#"
+                    "link": "| # | url | href |"
                 }
             ]
         },
         "faq": {
             "items": [
                 {
-                    "delay": 100,
-                    "title": "Non consectetur a erat nam at lectus urna duis?",
-                    "description": "Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non."
+                    "delay": "| 100 | text,number | data-aos-delay |",
+                    "title": "| Non consectetur a erat nam at lectus urna duis? | text | |",
+                    "description": "| Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non. | text | |"
                 },
                 {
-                    "delay": 200,
-                    "title": "Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?",
-                    "description": "Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim."
+                    "delay": "| 200 | text,number | data-aos-delay |",
+                    "title": "| Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? | text | |",
+                    "description": "| Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. | text | |"
                 },
                 {
-                    "delay": 300,
-                    "title": "Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?",
-                    "description": "Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus."
+                    "delay": "| 300 | text,number | data-aos-delay |",
+                    "title": "| Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? | text | |",
+                    "description": "| Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. | text | |"
                 },
                 {
-                    "delay": 400,
-                    "title": "Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?",
-                    "description": "Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim. Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt pariatur error doloribus fuga."
+                    "delay": "| 400 | text,number | data-aos-delay |",
+                    "title": "| Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? | text | |",
+                    "description": "| Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim. Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt pariatur error doloribus fuga. | text | |"
                 },
                 {
-                    "delay": 500,
-                    "title": "Tempus quam pellentesque nec nam aliquam sem et tortor consequat?",
-                    "description": "Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in."
+                    "delay": "| 500 | text,number | data-aos-delay |",
+                    "title": "| Tempus quam pellentesque nec nam aliquam sem et tortor consequat? | text | |",
+                    "description": "| Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in. | text | |"
                 }
             ]
         },
-        "dropdown": false,
+        "dropdown": "| false | boolean | |",
         "contact": {
-            "title": "Vesperr",
-            "description": "Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.",
-            "twitter": "#",
-            "facebooks": "#",
-            "instagram": "#",
-            "linkedin": "#",
-            "address": "A108 Adam Street<br>New York, NY 535022",
-            "email": "info@example.com",
-            "phone": "+1 5589 55488 55",
-            "loading": "Loading",
-            "error": "error",
-            "sent": "Your message has been sent. Thank you!"
+            "title": "| Vesperr | text | |",
+            "description": "| Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue. | text | |",
+            "twitter": "| # | url | href |",
+            "facebooks": "| # | url | href |",
+            "instagram": "| # | url | href |",
+            "linkedin": "| # | url | href |",
+            "address": "| A108 Adam Street<br>New York, NY 535022 | text | |",
+            "email": "| info@example.com | text,email | |",
+            "phone": "| +1 5589 55488 55 | text,phone | |",
+            "loading": "| Loading | text | |",
+            "error": "| error | text | |",
+            "sent": "| Your message has been sent. Thank you! | text | |"
         },
         "footer": {
-            "license": true,
-            "credits": true,
-            "privacy": "#",
-            "terms": "#"
+            "license": "| true | boolean | |",
+            "credits": "| true | boolean | |",
+            "privacy": "| # | url | href |",
+            "terms": "| # | url | href |"
         },
-        "getstarted": {
-
-        }
+        "getstarted": "| false | boolean | |"
     }
 }
