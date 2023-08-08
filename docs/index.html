@@ -296,10 +296,8 @@
             </div>
         </div>
         <!-- /license -->
-        <!-- #controller -->
         <div id="novemberizing-static-controller" class="novemberizing static controller container hide"></div>
         <iframe id="novemberizing-static-view" frameborder="0" scrolling="no" src="" class="novemberizing static view hide" style="overflow: hidden;"></iframe>
-        <!-- /controller -->
         <!-- BOOTSTRAP JS | https://getbootstrap.com/ -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
         <!-- AOS JS | https://michalsnik.github.io/aos/ -->
@@ -309,6 +307,34 @@
         <!-- SWIPERJS JS | https://swiperjs.com/ -->
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
-        <script></script>
+        <!-- REMOVE THIS CODE -->
+        <script src="https://cdn.jsdelivr.net/gh/novemberizing/static/dist/main.js" type="module"></script>
+        <!-- REMOVE THIS CODE -->
+        <script type="module">
+            import novemberizing from "https://cdn.jsdelivr.net/gh/novemberizing/static/dist/main.js";
+            // import novemberizing from 
+            AOS.init();
+
+            const swiper = new Swiper('.swiper', {
+                slidesPerView: 3,
+                speed: 1000,
+                spaceBetween: 10,
+                loopPreventsSliding: true,
+                slideToClickedSlide: true,
+                autoplay: {
+                    delay: 2000
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                }
+            });
+
+            console.log(novemberizing);
+
+
+            
+        </script>
     
 </button></li></button></li></ul></div></nav></div></header></body></html>

@@ -262,6 +262,14 @@ export default class Dom {
                     script.setAttribute(node.attributes[i].name, node.attributes[i].value);
                 }
                 script.textContext = node.textContext;
+                if(node.childNodes) {
+                    for(let i = 0; i < node.childNodes.length; i++) {
+                        script.appendChild(node.childNodes[i].cloneNode(true));
+                    }
+                }
+                // console.log(1, node.textContext);
+                // console.log(1, node.value);
+                // console.log(1, node.nodeValue);
                 parent.replaceChild(script, node);
                 node = script;
             }
