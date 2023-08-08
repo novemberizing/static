@@ -8,6 +8,8 @@
 (function() {
   "use strict";
 
+  const listeners = [];
+
   /**
    * Easy selector helper function
    */
@@ -58,6 +60,7 @@
       }
     })
   }
+
   window.addEventListener('load', navbarlinksActive)
   onscroll(document, navbarlinksActive)
 
@@ -226,7 +229,6 @@
     selector: '.portfolio-lightbox'
   });
 
-  console.log(Swiper);
   /**
    * Portfolio details slider
    */
@@ -248,6 +250,7 @@
    * Animation on scroll
    */
   window.addEventListener('load', () => {
+    console.log("window load");
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
@@ -256,13 +259,10 @@
     })
   });
 
+  // console.log(window);
+
   /**
    * Initiate Pure Counter 
    */
   new PureCounter();
-
-  console.log(1);
-
 })()
-
-console.log(1);

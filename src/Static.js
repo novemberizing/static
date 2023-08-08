@@ -29,9 +29,9 @@ export default class Static {
         if(bootstrap === undefined) throw new Error();
         const modal = new bootstrap.Modal(document.getElementById(Static.#loading), {});
 
-        function shownLoad(e) {
-            const frame = document.getElementById(Static.#view);
+        const frame = document.getElementById(Static.#view);
 
+        function shownLoad(e) {
             if(!document) throw new Error();
 
             let nodes =  [];
@@ -53,16 +53,28 @@ export default class Static {
             const array = frame.contentWindow.document.getElementsByTagName("script");
             const scripts = [];
             for(const script of array) scripts.push(script);
+
+            // TODO: 스크립트의 순차적 로딩
+            let length = 0;
             for(const script of scripts) {
                 const o = document.createElement("script");
                 for(const attribute of script.attributes) {
                     o.setAttribute(attribute.name, attribute.value);
                 }
                 o.textContent = script.textContent;
+                o.async = false;
                 const parent = script.parentNode;
                 const next = script.previousSibling;
                 parent.removeChild(script);
                 parent.insertBefore(o, next);
+                o.addEventListener("load", e => {
+                    length = length + 1;
+                    // TODO: 빈 스크립트의 경우 동작하지 않는다.
+                    // 강제적으로 이벤트를 발생 시킨다.
+                    if(length === scripts.length) {
+                        frame.contentWindow.dispatchEvent(new Event('load'));
+                    }
+                }, { once: true });
             }
 
             function callback(mutations, observer) {

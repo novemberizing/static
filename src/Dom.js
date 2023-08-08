@@ -10,7 +10,6 @@ export default class Dom {
         const element = document.createElement(tag);
         // 2. SET ATTRIBUTES
         for(const key of Object.keys(properties)) {
-            console.log(key);
             if(key.startsWith("on")) {
                 const action = key.substring(2).toLowerCase();
                 element.addEventListener(action, properties[key]);
@@ -137,7 +136,9 @@ export default class Dom {
             }
             return accumulator[last];
         } else {
-            throw new Error();
+            // TODO: CHECK THIS
+            console.warn("check this");
+            return accumulator[last];
         }
     }
     static #reconfig(accumulator, last, n, value = null, type = "text", attr = null) {
@@ -163,7 +164,8 @@ export default class Dom {
                 accumulator[last]._value = value;
             }
         } else {
-            throw new Error();
+            // TODO: CHECK THIS
+            // throw new Error();
         }
     }
     static #render(document, node, parent, config, context = [], condition = [], theme = undefined) {
@@ -185,7 +187,6 @@ export default class Dom {
                 } else {
                     if(type === '#' || type === '^') {
                         if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
-                        
                         const value = Dom.#value(accumulator, last);
                         const n = document.createComment(` ${type}${key} `);
                         elements.push(n);
@@ -259,13 +260,9 @@ export default class Dom {
                     if(type === '' || type === '.') {
                         // TODO: RECONFIG
                         if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
-                        const value = Dom.#value(accumulator, last);
-                        try {
-                            attribute.value = attribute.nodeValue = value;
-                        } catch(e) {
-                            throw new Error(e);
-                        }
-                        
+
+                        attribute.value = attribute.nodeValue = Dom.#value(accumulator, last);
+
                         Dom.#reconfig(accumulator, last, node, value, "attr", attribute.name);
                     } else {
                         throw new Error();  // Not support
@@ -299,10 +296,21 @@ export default class Dom {
                     if(attribute.name === "href" || attribute.name === "src") {
                         const value = attribute.value;
                         if(!value.startsWith("http") && !value.startsWith("/") && !value.startsWith("#")) {
-                            if(value.startsWith("{{")) {
-                                throw new Error();
+                            if(!value.startsWith("{{")) {
+                                attribute.value = attribute.nodeValue = theme + "/" + value;
+                                // CHECK T
+                                // throw new Error();
                             }
-                            attribute.value = attribute.nodeValue = theme + "/" + value;
+                        }
+                    } else if(attribute.name === "style") {
+                        const start = attribute.value.indexOf("url(\"");
+                        if(start !== -1) {
+                            const end = attribute.value.indexOf("\")", start + 5);
+                            if(end === -1) throw new Error();
+                            const values = [ attribute.value.substring(0, start) ];
+                            values.push("url(\"" + theme + '/' + attribute.value.substring(start + 5, end));
+                            values.push(attribute.value.substring(end));
+                            attribute.value = attribute.nodeValue = values.join("");
                         }
                     }
                 }

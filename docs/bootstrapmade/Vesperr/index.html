@@ -21,7 +21,7 @@
         <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
         <!-- Template Main CSS File -->
         <link href="assets/css/style.css" rel="stylesheet">
-        {{#license}}
+        <!-- {{#license}} -->
         <!-- =======================================================
           * Template Name: Vesperr
           * Updated: Jul 27 2023 with Bootstrap v5.3.1
@@ -29,7 +29,7 @@
           * Author: BootstrapMade.com
           * License: https://bootstrapmade.com/license/
         ======================================================== -->
-        {{/license}}
+        <!-- {{/license}} -->
     </head>
     <body>
         <!-- ======= Header ======= -->
@@ -309,12 +309,12 @@
                     </div>
                     <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
                         {{#items}}
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ filter }}">
+                        <div class="col-lg-4 col-md-6 portfolio-item {{ filter }}">
                             <div class="portfolio-wrap">
                                 <img src="{{{ image }}}" class="img-fluid" alt="">
                                 <div class="portfolio-info">
                                     <h4>{{ title }}</h4>
-                                    <p>{{ filter }}</p>
+                                    <p>{{ category }}</p>
                                     <div class="portfolio-links">
                                         <a href="{{{ image }}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ title }}"><i class="bx bx-plus"></i></a>
                                         <a href="{{{ link }}}" title="More Details"><i class="bx bx-link"></i></a>
@@ -380,7 +380,7 @@
                     <div class="row">
                         {{#items}}
                         <div class="col-lg-4 col-md-6">
-                            <div class="box" data-aos="zoom-in-right" data-aos-delay="{{ delay }}200">
+                            <div class="box" data-aos="zoom-in-right" data-aos-delay="{{ delay }}">
                                 <h3>{{ title }}</h3>
                                 <h4>{{{ price }}}</h4>
                                 <ul>
@@ -409,7 +409,7 @@
                         <h2>Frequently Asked Questions</h2>
                     </div>
                     {{#items}}
-                    <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{ delay }}100">
+                    <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{ delay }}">
                         <div class="col-lg-5">
                             <i class="ri-question-line"></i>
                             <h4>{{ title }}</h4>
