@@ -9,7 +9,8 @@ export default class Dom {
         // 1. CREATE ELEMENT
         const element = document.createElement(tag);
         // 2. SET ATTRIBUTES
-        for(const key of properties) {
+        for(const key of Object.keys(properties)) {
+            console.log(key);
             if(key.startsWith("on")) {
                 const action = key.substring(2).toLowerCase();
                 element.addEventListener(action, properties[key]);
@@ -26,7 +27,7 @@ export default class Dom {
         // 3. APPEND CHILD
         if(children) {
             // 3.1. ARRAYIZE
-            if(!Array.isArray(children)) children = [ chlidren ];
+            if(!Array.isArray(children)) children = [ children ];
             // 3.2 APPENd CHILDREN
             for(const child of children) {
                 if(child) {
@@ -36,7 +37,6 @@ export default class Dom {
                         element.appendChild(child);
                     }
                 }
-                element.appendChild(children);
             }
         }
         return element;
@@ -166,7 +166,7 @@ export default class Dom {
             throw new Error();
         }
     }
-    static #render(document, node, parent, config, context = [], condition = []) {
+    static #render(document, node, parent, config, context = [], condition = [], theme = undefined) {
         if(node.nodeType === node.TEXT_NODE || node.nodeType === node.COMMENT_NODE) {
             const s = Dom.#serializer.serializeToString(node.cloneNode(false));
             let begin = 0;
@@ -214,7 +214,7 @@ export default class Dom {
                                 for(let i = 1; i < value.length; i++) {
                                     children.forEach(clone => {
                                         context.push(`${i}`);
-                                        elements.push(Dom.#render(document, clone.cloneNode(true), parent, config, context));
+                                        elements.push(Dom.#render(document, clone.cloneNode(true), parent, config, context, [], theme));
                                         context.pop();
                                     });
                                 }
@@ -294,20 +294,18 @@ export default class Dom {
                         attribute.nodeValue = attribute.value = elements.join("");
                     }
                 }
-            }
-            if(node.nodeName.toLowerCase() === "script") {
-                const script = document.createElement("script");
-                for(let i = 0; i < node.attributes.length; i++) {
-                    script.setAttribute(node.attributes[i].name, node.attributes[i].value);
-                }
-                script.textContext = node.textContext;
-                if(node.childNodes) {
-                    for(let i = 0; i < node.childNodes.length; i++) {
-                        script.appendChild(node.childNodes[i].cloneNode(true));
+                // TODO: RELATIVE ADDR
+                if(theme) {
+                    if(attribute.name === "href" || attribute.name === "src") {
+                        const value = attribute.value;
+                        if(!value.startsWith("http") && !value.startsWith("/") && !value.startsWith("#")) {
+                            if(value.startsWith("{{")) {
+                                throw new Error();
+                            }
+                            attribute.value = attribute.nodeValue = theme + "/" + value;
+                        }
                     }
                 }
-                parent.replaceChild(script, node);
-                node = script;
             }
         } else {
             if(node.nodeType === node.DOCUMENT_NODE || node.nodeType === node.DOCUMENT_TYPE_NODE) {
@@ -321,17 +319,17 @@ export default class Dom {
         if(o === null || Array.isArray(o.accumulator[o.last]) === false) {
             if(node && node.childNodes) {
                 for(let child = node.firstChild; child ; child = child.nextSibling) {
-                    child = Dom.#render(document, child, node, config, context, condition);
+                    child = Dom.#render(document, child, node, config, context, condition, theme);
                 }
             }
         }
         return node;
     }
-    static render(text, config) {
+    static render(text, config, theme = undefined) {
         const document = Dom.#parser.parseFromString(text, "text/html");
         const context = [];
         const condition = [];
-        const output = Dom.#render(document, document, null, config, context, condition);
+        const output = Dom.#render(document, document, null, config, context, condition, theme);
         if(condition.length !== 0) throw new Error();
 
         return { dom: output, html: Dom.#serializer.serializeToString(output) };
