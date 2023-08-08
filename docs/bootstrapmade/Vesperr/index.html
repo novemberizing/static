@@ -258,14 +258,14 @@
             {{/feature}}
             {{#testimonial}}
             <!-- ======= Testimonials Section ======= -->
-            <section id="testimonials" class="testimonials section-bg">
+            <section id="testimonials" class="testimonials section-bg" style="height: 640px;">
                 <div class="container">
                     <div class="section-title" data-aos="fade-up">
                         <h2>Testimonials</h2>
                         <p>{{ description }}</p>
                     </div>
-                    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                        <div class="swiper-wrapper">
+                    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100" style="height: 640px; max-height: 640px;">
+                        <div class="swiper-wrapper" style="max-height: 300px;">
                             {{#items}}
                             <div class="swiper-slide">
                                 <div class="testimonial-wrap">
@@ -301,15 +301,15 @@
                         <div class="col-lg-12 d-flex justify-content-center">
                             <ul id="portfolio-flters">
                                 <li data-filter="*" class="filter-active">All</li>
-                                <li data-filter=".filter-app">App</li>
-                                <li data-filter=".filter-card">Card</li>
-                                <li data-filter=".filter-web">Web</li>
+                                <li data-filter=".filterapp">App</li>
+                                <li data-filter=".filtercard">Card</li>
+                                <li data-filter=".filterweb">Web</li>
                             </ul>
                         </div>
                     </div>
                     <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
                         {{#items}}
-                        <div class="col-lg-4 col-md-6 portfolio-item {{ filter }}">
+                        <div class="col-lg-4 col-md-6 portfolio-item filterapp">
                             <div class="portfolio-wrap">
                                 <img src="{{{ image }}}" class="img-fluid" alt="">
                                 <div class="portfolio-info">

@@ -136,9 +136,7 @@ export default class Dom {
             }
             return accumulator[last];
         } else {
-            // TODO: CHECK THIS
-            console.warn("check this");
-            return accumulator[last];
+            throw new Error();
         }
     }
     static #reconfig(accumulator, last, n, value = null, type = "text", attr = null) {
@@ -164,6 +162,7 @@ export default class Dom {
                 accumulator[last]._value = value;
             }
         } else {
+            throw new Error();
             // TODO: CHECK THIS
             // throw new Error();
         }
@@ -255,12 +254,21 @@ export default class Dom {
                 const attribute = node.attributes[i];
                 const value = attribute.value.trim();
                 
-                if(value.startsWith("{{")) {
+                if(value.startsWith("{{") && value.endsWith("}}")) {
                     const { end, key, type, accumulator, last, array } = Dom.#parse(value, 0, config, context);
                     if(type === '' || type === '.') {
                         // TODO: RECONFIG
                         if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
 
+                        if(Array.isArray(accumulator)) {
+                            if(accumulator.length === 0 || !accumulator[0]._node) {
+                                throw new Error();
+                            }
+                            if(isNaN(parseInt(context[context.length - 1]))) {
+                                continue;
+                            }
+                        }
+                        const value = Dom.#value(accumulator, last);
                         attribute.value = attribute.nodeValue = Dom.#value(accumulator, last);
 
                         Dom.#reconfig(accumulator, last, node, value, "attr", attribute.name);
@@ -277,6 +285,17 @@ export default class Dom {
                         const { end, key, type, accumulator, last, array } = Dom.#parse(s, start, config, context);
                         if(type === '' || type === '.') {
                             if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
+
+                            if(Array.isArray(accumulator)) {
+                                if(accumulator.length === 0 || !accumulator[0]._node) {
+                                    throw new Error();
+                                }
+                                if(isNaN(parseInt(context[context.length - 1]))) {
+                                    elements.length = 0;
+                                    break;
+                                }
+                            }
+
                             const value = Dom.#value(accumulator, last);
                             elements.push(value);
                             Dom.#reconfig(accumulator, last, node, value, "attr:sub", attribute.name);
@@ -288,7 +307,7 @@ export default class Dom {
                     
                     if(elements.length > 0) {
                         if(begin !== s.length) elements.push(s.substring(begin));
-                        attribute.nodeValue = attribute.value = elements.join("");
+                        attribute.value = elements.join("");
                     }
                 }
                 // TODO: RELATIVE ADDR

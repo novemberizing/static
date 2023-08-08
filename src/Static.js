@@ -29,6 +29,15 @@ export default class Static {
         if(bootstrap === undefined) throw new Error();
         const modal = new bootstrap.Modal(document.getElementById(Static.#loading), {});
 
+        // window.addEventListener("scroll", e => {
+        //     // const event = new Event("scroll");
+        //     // console.log(e);
+        //     // console.log(event);
+        //     // frame.contentWindow.scrollTo(0, window.scrollY + 100);
+        //     // frame.contentWindow.document.dispatchEvent(event);
+        //     // console.log(e);
+        // });
+
         const frame = document.getElementById(Static.#view);
 
         function shownLoad(e) {
@@ -81,7 +90,10 @@ export default class Static {
                 const node = mutations[0].addedNodes[0];        // TODO: ERROR HANDLING
                 const rect = node.getBoundingClientRect();
 
-                frame.height = parseInt(rect.y);
+                // window.
+                console.log(rect);
+
+                frame.height = rect.y;
 
                 modal.hide();
 

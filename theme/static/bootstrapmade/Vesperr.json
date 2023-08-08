@@ -276,63 +276,63 @@
             "description": "Necessitatibus eius consequatur ex aliquid fuga eum quidem",
             "items": [
                 {
-                    "filter": "filter-app",
+                    "filter": "filterapp",
                     "category": "app",
                     "image": "assets/img/portfolio/portfolio-1.jpg",
                     "title": "App 1",
                     "link": "#"
                 },
                 {
-                    "filter": "filter-web",
+                    "filter": "filterweb",
                     "category": "web",
                     "image": "assets/img/portfolio/portfolio-2.jpg",
                     "title": "Web 3",
                     "link": "#"
                 },
                 {
-                    "filter": "filter-app",
+                    "filter": "filterapp",
                     "category": "app",
                     "image": "assets/img/portfolio/portfolio-3.jpg",
                     "title": "App 2",
                     "link": "#"
                 },
                 {
-                    "filter": "filter-card",
+                    "filter": "filtercard",
                     "category": "card",
                     "image": "assets/img/portfolio/portfolio-4.jpg",
                     "title": "Card 2",
                     "link": "#"
                 },
                 {
-                    "filter": "filter-web",
+                    "filter": "filterweb",
                     "category": "web",
                     "image": "assets/img/portfolio/portfolio-5.jpg",
                     "title": "Web 2",
                     "link": "#"
                 },
                 {
-                    "filter": "filter-app",
+                    "filter": "filterapp",
                     "category": "app",
                     "image": "assets/img/portfolio/portfolio-6.jpg",
                     "title": "App 3",
                     "link": "#"
                 },
                 {
-                    "filter": "filter-card",
+                    "filter": "filtercard",
                     "category": "card",
                     "image": "assets/img/portfolio/portfolio-7.jpg",
                     "title": "Card 1",
                     "link": "#"
                 },
                 {
-                    "filter": "filter-card",
+                    "filter": "filtercard",
                     "category": "card",
                     "image": "assets/img/portfolio/portfolio-8.jpg",
                     "title": "Card 3",
                     "link": "#"
                 },
                 {
-                    "filter": "filter-web",
+                    "filter": "filterweb",
                     "category": "web",
                     "image": "assets/img/portfolio/portfolio-9.jpg",
                     "title": "Web 3",
