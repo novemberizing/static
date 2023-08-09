@@ -13,6 +13,15 @@ export default class Static {
     static #view = "novemberizing-static-view";
     static #controller = "novemberizing-static-controller";
     static #loading = "novemberizing-modal-loading";
+    static #license = "novemberizing-modal";
+
+    static get license(){ return Static.#license; }
+
+    static {
+        if(typeof bootstrap !== "undefined") {
+            Static.#license = new bootstrap.Modal(document.getElementById(Static.#license), {});
+        }
+    }
 
     static #append(destinaton, source) {
         const nodes = [];
@@ -39,6 +48,7 @@ export default class Static {
         Static.#dom = output.dom;
 
         const modal = new bootstrap.Modal(document.getElementById(Static.#loading), {});
+        
 
         Static.#append(frame.contentWindow.document.head, Static.#dom.head.childNodes);
         Static.#append(frame.contentWindow.document.body, Static.#dom.body.childNodes);
@@ -114,7 +124,7 @@ export default class Static {
 
             novemberizing.show(frame);
 
-            modal.hide();
+            setTimeout(() => modal.hide(), 500);
         }
 
         // 스크롤바가 2개 생긴다.
