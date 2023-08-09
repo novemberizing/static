@@ -165,73 +165,73 @@
             "items": [
                 {
                     "icon": "ri-store-line",
-                    "style": "style=\"color: #ffbb2c;\"",
+                    "style": "#ffbb2c",
                     "link": "#",
                     "title": "Lorem Ipsum"
                 },
                 {
                     "icon": "ri-bar-chart-box-line",
-                    "style": "style=\"color: #5578ff;\"",
+                    "style": "#5578ff",
                     "link": "#",
                     "title": "Dolor Sitema"
                 },
                 {
                     "icon": "ri-calendar-todo-line",
-                    "style": "style=\"color: #e80368;\"",
+                    "style": "#e80368",
                     "link": "#",
                     "title": "Sed perspiciatis"
                 },
                 {
                     "icon": "ri-paint-brush-line",
-                    "style": "style=\"color: #e361ff;\"",
+                    "style": "#e361ff",
                     "link": "#",
                     "title": "Magni Dolores"
                 },
                 {
                     "icon": "ri-database-2-line",
-                    "style": "style=\"color: #47aeff;\"",
+                    "style": "#47aeff",
                     "link": "#",
                     "title": "Nemo Enim"
                 },
                 {
                     "icon": "ri-gradienter-line",
-                    "style": "style=\"color: #ffa76e;\"",
+                    "style": "#ffa76e",
                     "link": "#",
                     "title": "Eiusmod Tempor"
                 },
                 {
                     "icon": "ri-file-list-3-line",
-                    "style": "style=\"color: #11dbcf;\"",
+                    "style": "#11dbcf",
                     "link": "#",
                     "title": "Midela Teren"
                 },
                 {
                     "icon": "ri-price-tag-2-line",
-                    "style": "style=\"color: #4233ff;\"",
+                    "style": "#4233ff",
                     "link": "#",
                     "title": "Pira Neve"
                 },
                 {
                     "icon": "ri-anchor-line",
-                    "style": "style=\"color: #b2904f;\"",
+                    "style": "#b2904f",
                     "link": "#",
                     "title": "Dirada Pack"
                 },
                 {
                     "icon": "ri-disc-line",
-                    "style": "style=\"color: #b20969;\"",
+                    "style": "#b20969",
                     "link": "#",
                     "title": "Moton Ideal"
                 },
                 {
                     "icon": "ri-base-station-line",
-                    "style": "style=\"color: #ff5828;\"",
+                    "style": "#ff5828",
                     "link": "#",
                     "title": "Verdo Park"
                 },
                 {
                     "icon": "ri-fingerprint-line",
-                    "style": "style=\"color: #29cc61;\"",
+                    "style": "#29cc61",
                     "link": "#",
                     "title": "Flavor Nivelanda"
                 }

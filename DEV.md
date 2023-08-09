@@ -36,4 +36,10 @@ npx novemberizing-static-gen --theme="bootstrapmade\Vesperr" --destination="docs
 
 ### 재미있는 현상이다.
 
+### 도큐먼트의 위치가 변경되면, 감지할 수 있도록 하자.
+
+### POPUP 같은 경우는 어떻게 풀어야 할까?
+
+### false 가 처리되지 않는다.
+
 

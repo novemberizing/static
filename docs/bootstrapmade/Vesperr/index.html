@@ -246,7 +246,7 @@
                         {{#items}}
                         <div class="col-lg-3 col-md-4">
                             <div class="icon-box">
-                                <i class="{{ icon }}" {{{ style }}}></i>
+                                <i class="{{ icon }}" style="color: {{{ style }}};"></i>
                                 <h3><a href="{{{ link }}}">{{ title }}</a></h3>
                             </div>
                         </div>
@@ -258,14 +258,14 @@
             {{/feature}}
             {{#testimonial}}
             <!-- ======= Testimonials Section ======= -->
-            <section id="testimonials" class="testimonials section-bg" style="height: 640px;">
+            <section id="testimonials" class="testimonials section-bg">
                 <div class="container">
                     <div class="section-title" data-aos="fade-up">
                         <h2>Testimonials</h2>
                         <p>{{ description }}</p>
                     </div>
-                    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100" style="height: 640px; max-height: 640px;">
-                        <div class="swiper-wrapper" style="max-height: 300px;">
+                    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                        <div class="swiper-wrapper">
                             {{#items}}
                             <div class="swiper-slide">
                                 <div class="testimonial-wrap">

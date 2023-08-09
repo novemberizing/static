@@ -867,6 +867,7 @@ section {
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
+
 .testimonials .testimonial-wrap {
   padding-left: 50px;
 }
@@ -949,6 +950,7 @@ section {
 }
 
 @media (max-width: 767px) {
+
   .testimonials .testimonial-wrap {
     padding-left: 0;
   }

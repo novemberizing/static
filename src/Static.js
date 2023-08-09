@@ -54,9 +54,10 @@ export default class Static {
             const scripts = [];
             for(const script of array) scripts.push(script);
 
-            const comment = novemberizing.dom.gen("div", { style: { width: '0px', height: '0px' } }, document.createComment("developed by novemberizing. : )"));
+            const comment = novemberizing.dom.gen("div", { style: { width: '100%', height: '0px' } }, document.createComment("developed by novemberizing. : )"));
 
             const delay = 200;
+            let interval = null;
             function delayOpen() {
                 setTimeout(() => {
                     const node = comment;
@@ -65,6 +66,14 @@ export default class Static {
                     setTimeout(() => {
                         modal.hide();
                     }, delay);
+                }, delay);
+
+                let recent = 0;
+                interval = setInterval(() => {
+                    const rect = comment.getBoundingClientRect();
+                    if(recent !== rect.y) {
+                        frame.height = parseInt(rect.y);
+                    }
                 }, delay);
             }
             // TODO: 스크립트의 순차적 로딩
@@ -111,15 +120,32 @@ export default class Static {
                         node = node.parentNode;
                     }
                     if(node) {
-                        if(node.href === '#') {
-                            location.href = node.href;
-                        } else if(node.href) {
-                            if(node.href.startsWith("http")) {
-                                location.href = node.href;
+                        const href = node.getAttribute("href");
+                        if(href === '#') {
+                            window.scrollTo({
+                                top: 0,
+                                left: 0,
+                                behavior: "smooth"
+                            });
+                            e.preventDefault();
+                        } else if(href) {
+                            if(href.startsWith("http")) {
+                                location.href = href;
+                                e.preventDefault();
+                            } else if(href.startsWith('#')) {
+                                const targets = frame.contentWindow.document.getElementsByName(href.substring(1));
+                                const target = targets.length > 0 ? targets[0] : frame.contentWindow.document.getElementById(href.substring(1));
+                                if(target) {
+                                    const rect = target.getBoundingClientRect();
+                                    window.scrollTo({
+                                        top: rect.y + 100,
+                                        left: rect.x,
+                                        behavior: "smooth"
+                                    });
+                                }
                             }
                         }
                     }
-                    e.preventDefault();
                 });
             }
 

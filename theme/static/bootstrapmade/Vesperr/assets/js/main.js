@@ -170,6 +170,7 @@
   new Swiper('.testimonials-slider', {
     speed: 600,
     loop: true,
+    autoHeight : true,    // REFACTOR
     autoplay: {
       delay: 5000,
       disableOnInteraction: false

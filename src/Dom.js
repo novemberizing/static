@@ -180,7 +180,7 @@ export default class Dom {
                     // TODO: RECONFIG
                     if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
                     const value = Dom.#value(accumulator, last);
-                    const n = document.createTextNode(value);
+                    const n = (typeof value === "boolean" ? document.createTextNode('') : document.createTextNode(value));
                     elements.push(n);
                     Dom.#reconfig(accumulator, last, n, value, "text");
                 } else {
@@ -317,8 +317,6 @@ export default class Dom {
                         if(!value.startsWith("http") && !value.startsWith("/") && !value.startsWith("#")) {
                             if(!value.startsWith("{{")) {
                                 attribute.value = attribute.nodeValue = theme + "/" + value;
-                                // CHECK T
-                                // throw new Error();
                             }
                         }
                     } else if(attribute.name === "style") {
