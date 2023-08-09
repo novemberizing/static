@@ -651,44 +651,17 @@ utils.handleEvent = function( event ) {
 utils.filterFindElements = function( elems, selector ) {
   // make array of elems
   elems = utils.makeArray( elems );
-  console.log(elems);
   var ffElems = [];
 
   elems.forEach( function( elem ) {
-    // TODO: WHY NOT WORKING?
-
-    console.log(elem.constructor);
-    console.log(HTMLDivElement);
-    let parent = elem.parentNode;
-    while(parent) {
-      // console.log(parent);
-      parent = parent.parentNode;
-    }
-
-    console.log(window);
-    console.log('');
-    console.log("element instance constructor prototype => ", elem.constructor.prototype);
-    console.log("HTMLDivElement.prototype => ", HTMLDivElement.prototype);
-    console.log("element instanceof HTMLDivElement", elem instanceof HTMLDivElement);
-    console.log('');
-
-    console.log(elem, elem instanceof HTMLDivElement, elem.constructor.name, HTMLDivElement, elem.constructor, HTMLDivElement == elem.constructor);
     // check that elem is an actual element
     if ( !( elem instanceof HTMLElement ) ) {
-      console.log(elem, elem instanceof HTMLDivElement, elem.constructor.name, HTMLDivElement, elem.constructor, HTMLDivElement == elem.constructor);
-      // TODO: CHECK THIS ...
         return;
     }
-    
-    // if ( !( elem instanceof HTMLElement ) && !(elem instanceof HTMLDivElement)) {
-    //   console.log("why", elem, elem.constructor.name, elem instanceof HTMLDivElement, elem instanceof HTMLElement);
-    //   return;
-    // }
 
     // add elem if no selector
     if ( !selector ) {
       ffElems.push( elem );
-      console.log("why2");
       return;
     }
     // filter & find items if we have a selector
@@ -703,8 +676,6 @@ utils.filterFindElements = function( elems, selector ) {
       ffElems.push( childElems[i] );
     }
   });
-
-  console.log(ffElems);
 
   return ffElems;
 };
@@ -1559,7 +1530,6 @@ proto._itemize = function( elems ) {
  * @returns {Array} items - item elements
  */
 proto._filterFindItemElements = function( elems ) {
-  console.log(elems, this.options.itemSelector);
   return utils.filterFindElements( elems, this.options.itemSelector );
 };
 
@@ -3424,7 +3394,6 @@ var trim = String.prototype.trim ?
     var layoutMode = this.options.layoutMode;
     var mode = this.modes[ layoutMode ];
     if ( !mode ) {
-      // TODO console.error
       throw new Error( 'No layout mode: ' + layoutMode );
     }
     // HACK sync mode's options

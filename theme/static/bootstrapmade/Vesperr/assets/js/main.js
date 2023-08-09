@@ -41,7 +41,6 @@
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', e => {
-      // console.log("frame", e);
       listener(e);
     })
   }
@@ -91,7 +90,6 @@
   let selectHeader = select('#header')
   if (selectHeader) {
     const headerScrolled = () => {
-      console.log(1, window.scrollY);
       if (window.scrollY > 100) {
         selectHeader.classList.add('header-scrolled')
       } else {
@@ -199,21 +197,16 @@
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
-    console.log("onload");
     let portfolioContainer = select('.portfolio-container');
-    console.log(portfolioContainer);
     if (portfolioContainer) {
-      console.log(Isotope);
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
       });
-      console.log(portfolioIsotope);
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
       on('click', '#portfolio-flters li', function(e) {
-        console.log(1);
         e.preventDefault();
 
         portfolioFilters.forEach(function(el) {
@@ -269,7 +262,6 @@
     })
   });
 
-  // console.log(window);
 
   /**
    * Initiate Pure Counter 

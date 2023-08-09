@@ -391,7 +391,7 @@
                 {
                     "delay": 200,
                     "title": "Free",
-                    "price": "<sup>$</sup>0<span> / month</span>",
+                    "price": 0,
                     "items": [
                         {
                             "title": "Aida dere"
@@ -415,7 +415,7 @@
                 {
                     "delay": 100,
                     "title": "Business",
-                    "price": "<sup>$</sup>19<span> / month</span>",
+                    "price": 19,
                     "items": [
                         {
                             "title": "Aida dere"
@@ -439,7 +439,7 @@
                 {
                     "delay": 200,
                     "title": "Developer",
-                    "price": "<sup>$</sup>29<span> / month</span>",
+                    "price": 29,
                     "items": [
                         {
                             "title": "Aida dere"

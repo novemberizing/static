@@ -31,17 +31,6 @@ export default class Static {
         if(bootstrap === undefined) throw new Error();
         const modal = new bootstrap.Modal(document.getElementById(Static.#loading), {});
 
-        // window.addEventListener("scroll", e => {
-        //     // const event = new Event("scroll");
-        //     // console.log(e);
-        //     // console.log(event);
-        //     // frame.contentWindow.scrollTo(0, window.scrollY + 100);
-        //     // frame.contentWindow.document.dispatchEvent(event);
-        //     // console.log(e);
-        // });
-
-        
-
         function shownLoad(e) {
             if(!document) throw new Error();
 
@@ -65,6 +54,19 @@ export default class Static {
             const scripts = [];
             for(const script of array) scripts.push(script);
 
+            const comment = novemberizing.dom.gen("div", { style: { width: '0px', height: '0px' } }, document.createComment("developed by novemberizing. : )"));
+
+            const delay = 200;
+            function delayOpen() {
+                setTimeout(() => {
+                    const node = comment;
+                    const rect = node.getBoundingClientRect();
+                    frame.height = rect.y;
+                    setTimeout(() => {
+                        modal.hide();
+                    }, delay);
+                }, delay);
+            }
             // TODO: 스크립트의 순차적 로딩
             let length = 0;
             for(const script of scripts) {
@@ -82,31 +84,24 @@ export default class Static {
                     length = length + 1;
                     // TODO: 빈 스크립트의 경우 동작하지 않는다.
                     // 강제적으로 이벤트를 발생 시킨다.
-                    if(length === scripts.length) {
+                    if(length >= scripts.length) {
                         frame.contentWindow.dispatchEvent(new Event('load'));
+                        console.log("windows. load");
+                        delayOpen();
                     }
                 }, { once: true });
             }
 
             function callback(mutations, observer) {
-                const node = mutations[0].addedNodes[0];        // TODO: ERROR HANDLING
-                const rect = node.getBoundingClientRect();
-
-                // window.
-                console.log(rect);
-
-                frame.height = rect.y;
-
-                modal.hide();
-
+                console.log("mutations load");
+                if(scripts.length === 0) delayOpen();
                 observer.disconnect();
             }
             const observer = new MutationObserver(callback);
 
             observer.observe(frame.contentWindow.document.body, { attributes: true, childList: true, subtree: true });
 
-            const o = novemberizing.dom.gen("div", { style: { width: '0px', height: '0px' } }, document.createComment("developed by novemberizing. : )"));
-            frame.contentWindow.document.body.appendChild(o);
+            frame.contentWindow.document.body.appendChild(comment);
 
             const links = frame.contentWindow.document.getElementsByTagName("a");
             for(const link of links) {

@@ -118,7 +118,7 @@ export default class Dom {
             throw new Error();
         }
 
-        return { end: end + 2 + escape, key, type, accumulator, last, array };
+        return { end: end + 2 + escape, escape, key, type, accumulator, last, array };
     }
 
     static #value(accumulator, last) {
@@ -175,7 +175,7 @@ export default class Dom {
             const elements = [];
             while((start = s.indexOf("{{", begin)) !== -1) {
                 if(begin !== start) elements.push(document.createTextNode(s.substring(begin, start)));
-                const { end, key, type, accumulator, last, array } = Dom.#parse(s, start, config, context);
+                const { end, key, type, accumulator, last, array, escape } = Dom.#parse(s, start, config, context);
                 if(type === '' || type === '.') {
                     // TODO: RECONFIG
                     if(accumulator[last] === null || accumulator[last] === undefined) throw new Error();
