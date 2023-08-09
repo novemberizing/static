@@ -14,9 +14,18 @@ export default class Static {
     static #controller = "novemberizing-static-controller";
     static #loading = "novemberizing-modal-loading";
 
+    static #append(destinaton, source) {
+        const nodes = [];
+        for(const node of source) nodes.push(node);
+        for(const node of nodes) destinaton.appendChild(node);
+
+        return destinaton;
+    }
+
     static off() {
 
     }
+
     static async on(name) {
         const html = await fetch(`${name}/`);
         const config = await fetch(`${name}.json`);
@@ -26,135 +35,96 @@ export default class Static {
 
         // TODO: ALL FILE PARSING
         const output = novemberizing.dom.render(await html.text(), Static.#config["index.html"], name, frame.contentWindow.document);
+
         Static.#dom = output.dom;
 
-        if(bootstrap === undefined) throw new Error();
         const modal = new bootstrap.Modal(document.getElementById(Static.#loading), {});
 
-        function shownLoad(e) {
-            if(!document) throw new Error();
+        Static.#append(frame.contentWindow.document.head, Static.#dom.head.childNodes);
+        Static.#append(frame.contentWindow.document.body, Static.#dom.body.childNodes);
 
-            let nodes =  [];
-            for(let i = 0; i < Static.#dom.head.childNodes.length; i++) {
-                nodes.push(Static.#dom.head.childNodes[i]);
-            }
-            for(const node of nodes) {
-                frame.contentWindow.document.head.appendChild(node);
-            }
-
-            nodes =  [];
-            for(let i = 0; i < Static.#dom.body.childNodes.length; i++) {
-                nodes.push(Static.#dom.body.childNodes[i]);
-            }
-            for(const node of nodes) {
-                frame.contentWindow.document.body.appendChild(node);
-            }
-            // TODO: SCRIPTS CREATE
-            const array = frame.contentWindow.document.getElementsByTagName("script");
-            const scripts = [];
-            for(const script of array) scripts.push(script);
-
-            const comment = novemberizing.dom.gen("div", { style: { width: '100%', height: '0px' } }, document.createComment("developed by novemberizing. : )"));
-
-            const delay = 200;
-            let interval = null;
-            function delayOpen() {
-                setTimeout(() => {
-                    const node = comment;
-                    const rect = node.getBoundingClientRect();
-                    frame.height = rect.y;
-                    setTimeout(() => {
-                        modal.hide();
-                    }, delay);
-                }, delay);
-
-                let recent = 0;
-                interval = setInterval(() => {
-                    const rect = comment.getBoundingClientRect();
-                    if(recent !== rect.y) {
-                        frame.height = parseInt(rect.y);
-                    }
-                }, delay);
-            }
-            // TODO: 스크립트의 순차적 로딩
-            let length = 0;
-            for(const script of scripts) {
-                const o = document.createElement("script");
-                for(const attribute of script.attributes) {
-                    o.setAttribute(attribute.name, attribute.value);
-                }
-                o.textContent = script.textContent;
-                o.async = false;
-                const parent = script.parentNode;
-                const next = script.previousSibling;
-                parent.removeChild(script);
-                parent.insertBefore(o, next);
-                o.addEventListener("load", e => {
-                    length = length + 1;
-                    // TODO: 빈 스크립트의 경우 동작하지 않는다.
-                    // 강제적으로 이벤트를 발생 시킨다.
-                    if(length >= scripts.length) {
-                        frame.contentWindow.dispatchEvent(new Event('load'));
-                        console.log("windows. load");
-                        delayOpen();
-                    }
-                }, { once: true });
-            }
-
-            function callback(mutations, observer) {
-                console.log("mutations load");
-                if(scripts.length === 0) delayOpen();
-                observer.disconnect();
-            }
-            const observer = new MutationObserver(callback);
-
-            observer.observe(frame.contentWindow.document.body, { attributes: true, childList: true, subtree: true });
-
-            frame.contentWindow.document.body.appendChild(comment);
-
-            const links = frame.contentWindow.document.getElementsByTagName("a");
-            for(const link of links) {
-                link.addEventListener("click", e => {
-                    let node = e.target;
-                    while(node && node.tagName.toUpperCase() !== 'A') {
-                        node = node.parentNode;
-                    }
-                    if(node) {
-                        const href = node.getAttribute("href");
-                        if(href === '#') {
-                            window.scrollTo({
-                                top: 0,
-                                left: 0,
-                                behavior: "smooth"
-                            });
-                            e.preventDefault();
-                        } else if(href) {
-                            if(href.startsWith("http")) {
-                                location.href = href;
-                                e.preventDefault();
-                            } else if(href.startsWith('#')) {
-                                const targets = frame.contentWindow.document.getElementsByName(href.substring(1));
-                                const target = targets.length > 0 ? targets[0] : frame.contentWindow.document.getElementById(href.substring(1));
-                                if(target) {
-                                    const rect = target.getBoundingClientRect();
-                                    window.scrollTo({
-                                        top: rect.y + 100,
-                                        left: rect.x,
-                                        behavior: "smooth"
-                                    });
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-
-            novemberizing.show(frame);
+        for(const attribute of Static.#dom.body.attributes) {
+            frame.contentWindow.document.body.setAttribute(attribute.name, attribute.value);
         }
 
-        document.getElementById(Static.#loading).addEventListener("shown.bs.modal", shownLoad, { once: true });
-        // modal
+        // SCRIPT 처리
+        let length = 0;
+        const scripts = frame.contentWindow.document.getElementsByTagName("script");
+        for(const node of scripts) {
+            const script = document.createElement("script");
+            for(const attribute of node.attributes) {
+                script.setAttribute(attribute.name, attribute.value);
+            }
+            script.textContent = node.textContent;
+            script.async = false;
+            script.addEventListener("load", e => {
+                console.log(e);
+                // 스크립트가 다 로드되면 강제적으로 WINDOWS LOAD 를 수행한다.
+                length = length + 1;
+                if(length >= scripts.length) {
+                    // 강제적으로 로딩을 한다.
+                    frame.contentWindow.dispatchEvent(new Event("load"));
+                    console.log("length >= scripts.length");
+                }
+                
+            });
+
+            const parent = node.parentNode;
+            parent.insertBefore(script, node);
+            parent.removeChild(node);
+        }
+        // LINK 처리
+        const links = frame.contentWindow.document.body.getElementsByTagName("a");
+        for(const link of links) {
+            link.addEventListener("click", e => {
+                let target = e.target;
+                while(target.tagName.toLowerCase() !== 'a') {
+                    target = target.parentNode;
+                }
+                const href = target.getAttribute("href").trim();
+                if(href === '#') {
+                    console.log(href);
+                    frame.contentWindow.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: "smooth"
+                    });
+                } else if(href.startsWith('http')) {
+                    location.href = href;
+                }
+                e.preventDefault();
+            });
+        }
+
+        function callback(mutations, observer) {
+            console.log(mutations);
+            observer.disconnect();
+        }
+
+        const observer = new MutationObserver(callback);
+
+        observer.observe(frame.contentWindow.document.body, { attributes: true, childList: true, subtree: true });
+
+        const comment = novemberizing.dom.gen("div", { style: { width: '100%', height: '0px' } }, document.createComment("developed by novemberizing. : )"));
+
+        frame.contentWindow.document.body.appendChild(comment);
+
+        function load(e) {
+            // CALCULATE SCREEN WITH, SCREEN HEIGHT
+            frame.width = window.innerWidth;
+            frame.height = window.innerHeight;
+
+            novemberizing.show(frame);
+
+            modal.hide();
+        }
+
+        // 스크롤바가 2개 생긴다.
+        document.body.style.overflow = "hidden";
+
+        document.getElementById(Static.#loading).addEventListener("shown.bs.modal", load, { once: true });
         modal.show();   
     }
 }
+
 

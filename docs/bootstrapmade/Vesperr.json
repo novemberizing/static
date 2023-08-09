@@ -11,14 +11,16 @@
     },
     "index.html": {
         "title": "Novemberizing's static website generator",
-        "description": "Novemberizing's static website generator",
-        "keywords": "novemberizing, static, website, generator, nodejs, github, bootstrapmade, bootstrap, firebase",
+        "description": "",
+        "keywords": "",
         "favicon": "assets/img/favicon.png",
         "apple": {
             "icon": "assets/img/apple-touch-icon.png"
         },
         "license": true,
-        "menu": true,
+        "menu": {
+            "logo": "Vesperr"  
+        },
         "home": {
             "title": "Grow your business with Vesperr",
             "description": "We are team of talented designers making websites with Bootstrap",
@@ -276,63 +278,63 @@
             "description": "Necessitatibus eius consequatur ex aliquid fuga eum quidem",
             "items": [
                 {
-                    "filter": "filterapp",
+                    "filter": "filter-app",
                     "category": "app",
                     "image": "assets/img/portfolio/portfolio-1.jpg",
                     "title": "App 1",
                     "link": "#"
                 },
                 {
-                    "filter": "filterweb",
+                    "filter": "filter-web",
                     "category": "web",
                     "image": "assets/img/portfolio/portfolio-2.jpg",
                     "title": "Web 3",
                     "link": "#"
                 },
                 {
-                    "filter": "filterapp",
+                    "filter": "filter-app",
                     "category": "app",
                     "image": "assets/img/portfolio/portfolio-3.jpg",
                     "title": "App 2",
                     "link": "#"
                 },
                 {
-                    "filter": "filtercard",
+                    "filter": "filter-card",
                     "category": "card",
                     "image": "assets/img/portfolio/portfolio-4.jpg",
                     "title": "Card 2",
                     "link": "#"
                 },
                 {
-                    "filter": "filterweb",
+                    "filter": "filter-web",
                     "category": "web",
                     "image": "assets/img/portfolio/portfolio-5.jpg",
                     "title": "Web 2",
                     "link": "#"
                 },
                 {
-                    "filter": "filterapp",
+                    "filter": "filter-app",
                     "category": "app",
                     "image": "assets/img/portfolio/portfolio-6.jpg",
                     "title": "App 3",
                     "link": "#"
                 },
                 {
-                    "filter": "filtercard",
+                    "filter": "filter-card",
                     "category": "card",
                     "image": "assets/img/portfolio/portfolio-7.jpg",
                     "title": "Card 1",
                     "link": "#"
                 },
                 {
-                    "filter": "filtercard",
+                    "filter": "filter-card",
                     "category": "card",
                     "image": "assets/img/portfolio/portfolio-8.jpg",
                     "title": "Card 3",
                     "link": "#"
                 },
                 {
-                    "filter": "filterweb",
+                    "filter": "filter-web",
                     "category": "web",
                     "image": "assets/img/portfolio/portfolio-9.jpg",
                     "title": "Web 3",
@@ -506,13 +508,9 @@
             "sent": "Your message has been sent. Thank you!"
         },
         "footer": {
-            "license": true,
-            "credits": true,
             "privacy": "#",
             "terms": "#"
         },
-        "getstarted": {
-
-        }
+        "getstarted": true
     }
 }

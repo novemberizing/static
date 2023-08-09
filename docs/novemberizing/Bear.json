@@ -26,7 +26,7 @@
                     "description": "Vesperr is a clean, modern and stylish digital agency website template created with Bootstrap framework. It can be use by agencies, freelancers, corporate business, creative designers or any creative professionals. It comes with smooth interaction animations and makes the user experience more natural and soothing.",
                     "external": {
                         "link": "https://bootstrapmade.com/vesperr-free-bootstrap-template/",
-                        "title": "Bootstrapmade/Vesperr"
+                        "title": "Bootstrapmade"
                     },
                     "generate": "bootstrapmade/Vesperr"
                 },
@@ -36,7 +36,7 @@
                     "description": "Maundy is a free coming soon template built in bootstrap framework. It is fully responsive, elegant, simple, clean and mobile friendly bootstrap coming soon template. This template is based on HTML5, CSS3 and latest bootstrap framework with multi browser and any device support. This free coming soon template template packed with fully features and contains many features with a minimal outlooks.",
                     "external": {
                         "link": "https://bootstrapmade.com/maundy-free-coming-soon-bootstrap-theme/",
-                        "title": "Bootstrapmade/Maundy"
+                        "title": "Bootstrapmade"
                     },
                     "generate": "bootstrapmade/Maundy"
                 },
@@ -46,9 +46,9 @@
                     "description": "Bear is a theme that can introduce web applications made with Bootstrap, Animate On Scroll Library, Fontawesome, and Swiperjs. It is provided as a template so that you can easily create a web application introduction page. You can download it directly if needed.",
                     "external": {
                         "link": "https://github.com/novemberizing",
-                        "title": "Novemberizing/Bear"
+                        "title": "Bear"
                     },
-                    "generate": "novemberizing/Bear"
+                    "generate": "Bear"
                 }
             ]
         },

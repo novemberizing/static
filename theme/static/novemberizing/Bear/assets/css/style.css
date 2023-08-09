@@ -58,7 +58,7 @@ h6 {
  * Header
  */
 #header {
-    z-index: 997;
+    z-index: 100;
     transition: all 0.5s;
     padding: 22px 0;
     background: #fff;

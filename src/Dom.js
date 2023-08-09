@@ -163,8 +163,6 @@ export default class Dom {
             }
         } else {
             throw new Error();
-            // TODO: CHECK THIS
-            // throw new Error();
         }
     }
     static #render(document, node, parent, config, context = [], condition = [], theme = undefined) {
@@ -223,8 +221,7 @@ export default class Dom {
                                 while(node.previousSibling) {
                                     if(node.previousSibling.nodeValue) {
                                         const v = node.previousSibling.nodeValue.trim();
-                                        const k = v.startsWith("{{{") ? v.substring(3, v.indexOf("}}}")).trim() : v.substring(2, v.indexOf("}}")).trim();
-                                        if(v.startsWith("{{") && (k === `#${key}` || k === `^{key}`)) {
+                                        if(v === `#${key}` || v === `^${key}`) {
                                             break;
                                         }
                                     }
@@ -232,6 +229,17 @@ export default class Dom {
                                 }
                             } else {
                                 open.accumulator[open.last]._children = children;
+                                if(open.accumulator[open.last]._value === false) {
+                                    while(node.previousSibling) {
+                                        if(node.previousSibling.nodeValue) {
+                                            const v = node.previousSibling.nodeValue.trim();
+                                            if(v === `#${key}` || v === `^${key}`) {
+                                                break;
+                                            }
+                                        }
+                                        node.parentNode.removeChild(node.previousSibling);
+                                    }
+                                }
                             }
                         } else {
                             throw new Error();
