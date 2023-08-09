@@ -77,5 +77,3 @@
   setInterval(countDownDate, 1000);
 
 })()
-
-console.log(1);

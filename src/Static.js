@@ -58,13 +58,11 @@ export default class Static {
             script.textContent = node.textContent;
             script.async = false;
             script.addEventListener("load", e => {
-                console.log(e);
                 // 스크립트가 다 로드되면 강제적으로 WINDOWS LOAD 를 수행한다.
                 length = length + 1;
                 if(length >= scripts.length) {
                     // 강제적으로 로딩을 한다.
                     frame.contentWindow.dispatchEvent(new Event("load"));
-                    console.log("length >= scripts.length");
                 }
                 
             });
@@ -81,23 +79,23 @@ export default class Static {
                 while(target.tagName.toLowerCase() !== 'a') {
                     target = target.parentNode;
                 }
-                const href = target.getAttribute("href").trim();
-                if(href === '#') {
-                    console.log(href);
-                    frame.contentWindow.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth"
-                    });
-                } else if(href.startsWith('http')) {
-                    location.href = href;
+                if(target.getAttribute("href")) {
+                    const href = target.getAttribute("href").trim();
+                    if(href === '#') {
+                        frame.contentWindow.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: "smooth"
+                        });
+                    } else if(href.startsWith('http')) {
+                        location.href = href;
+                    }
+                    e.preventDefault();
                 }
-                e.preventDefault();
             });
         }
 
         function callback(mutations, observer) {
-            console.log(mutations);
             observer.disconnect();
         }
 

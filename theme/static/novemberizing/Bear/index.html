@@ -88,7 +88,7 @@
                                                 </h5>
                                                 <p class="card-text mb-1">{{ description }}</p>
                                                 {{#generate}}
-                                                <button type="button" class="btn btn-link" onclick="novemberizing.static.gen('{{{ . }}}')">Generate</button>
+                                                <button type="button" class="btn btn-link" onclick="console.log('{{{ . }}}')">Generate</button>
                                                 {{/generate}}
                                             </div>
                                         </div>
@@ -126,16 +126,16 @@
                     <div class="col-lg-6">
                         <div class="link fw-bold">
                             {{#buymeacoffee}}
-                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ . }}}');">Buy me a coffee</button>
+                            <a href="{{{ . }}}" class="fw-bold" style="font-size: 14px;">Buy me a coffee</a>
                             {{/buymeacoffee}}
                             {{#github}}
-                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ . }}}');">Github</button>
+                            <a href="{{{ . }}}" class="fw-bold" style="font-size: 14px;">Github</a>
                             {{/github}}
                             {{#license}}
-                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.modal.show();">License</button>
+                            <a href="#" class="fw-bold" style="font-size: 14px;" onClick="modal.show();">License</a>
                             {{/license}}
                             {{#organization}}
-                            <button type="button" class="btn btn-link fw-bold" style="font-size: 14px;" onClick="novemberizing.move('{{{ link }}}');">{{{ title }}}</button>
+                            <a href="{{{ link }}}" class="fw-bold" style="font-size: 14px;">{{ title }}</a>
                             {{/organization}}
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                         {{/items}}
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="button" class="btn btn-link" onClick="novemberizing.modal.hide();">CLOSE</button>
+                        <button type="button" class="btn btn-link" onClick="modal.hide();">CLOSE</button>
                     </div>
                 </div>
             </div>
@@ -182,27 +182,7 @@
         <script src="https://kit.fontawesome.com/1144ba9326.js" crossorigin="anonymous"></script>
         <!-- SWIPERJS JS | https://swiperjs.com/ -->
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script>
-            window.addEventListener("load", e => {
-                AOS.init();
-
-                const swiper = new Swiper('.swiper', {
-                    slidesPerView: 3,
-                    speed: 1000,
-                    spaceBetween: 10,
-                    loopPreventsSliding: true,
-                    slideToClickedSlide: true,
-                    autoplay: {
-                        delay: 2000
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                        dynamicBullets: true
-                    }
-                });
-            });
-        </script>
+        <script src="main.js"></script>
     </body>
 </html>
 
