@@ -201,7 +201,9 @@
   window.addEventListener('load', () => {
     console.log("onload");
     let portfolioContainer = select('.portfolio-container');
+    console.log(portfolioContainer);
     if (portfolioContainer) {
+      console.log(Isotope);
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
@@ -222,6 +224,7 @@
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
+
         portfolioIsotope.on('arrangeComplete', function() {
           AOS.refresh()
         });

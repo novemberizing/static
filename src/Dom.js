@@ -352,11 +352,12 @@ export default class Dom {
         }
         return node;
     }
-    static render(text, config, theme = undefined) {
-        const document = Dom.#parser.parseFromString(text, "text/html");
+    static render(text, config, theme = undefined, doc = typeof document !== "undefined" ? document : undefined) {
+        const dom = Dom.#parser.parseFromString(text, "text/html");
         const context = [];
         const condition = [];
-        const output = Dom.#render(document, document, null, config, context, condition, theme);
+        doc = doc || dom;
+        const output = Dom.#render(doc, dom, null, config, context, condition, theme);
         if(condition.length !== 0) throw new Error();
 
         return { dom: output, html: Dom.#serializer.serializeToString(output) };

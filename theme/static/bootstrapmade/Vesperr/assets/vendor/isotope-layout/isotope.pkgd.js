@@ -651,16 +651,19 @@ utils.handleEvent = function( event ) {
 utils.filterFindElements = function( elems, selector ) {
   // make array of elems
   elems = utils.makeArray( elems );
+  console.log(elems);
   var ffElems = [];
 
   elems.forEach( function( elem ) {
     // check that elem is an actual element
     if ( !( elem instanceof HTMLElement ) ) {
-      return;
+        return;
     }
+
     // add elem if no selector
     if ( !selector ) {
       ffElems.push( elem );
+      console.log("why2");
       return;
     }
     // filter & find items if we have a selector
@@ -675,6 +678,8 @@ utils.filterFindElements = function( elems, selector ) {
       ffElems.push( childElems[i] );
     }
   });
+
+  console.log(ffElems);
 
   return ffElems;
 };
@@ -1529,6 +1534,7 @@ proto._itemize = function( elems ) {
  * @returns {Array} items - item elements
  */
 proto._filterFindItemElements = function( elems ) {
+  console.log(elems, this.options.itemSelector);
   return utils.filterFindElements( elems, this.options.itemSelector );
 };
 

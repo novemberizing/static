@@ -22,8 +22,10 @@ export default class Static {
         const config = await fetch(`${name}.json`);
         Static.#config = await config.json();
 
+        const frame = document.getElementById(Static.#view);
+
         // TODO: ALL FILE PARSING
-        const output = novemberizing.dom.render(await html.text(), Static.#config["index.html"], name);
+        const output = novemberizing.dom.render(await html.text(), Static.#config["index.html"], name, frame.contentWindow.document);
         Static.#dom = output.dom;
 
         if(bootstrap === undefined) throw new Error();
@@ -38,7 +40,7 @@ export default class Static {
         //     // console.log(e);
         // });
 
-        const frame = document.getElementById(Static.#view);
+        
 
         function shownLoad(e) {
             if(!document) throw new Error();
