@@ -34,6 +34,87 @@ export default class Static {
     static off() {
 
     }
+ 
+
+    static #controllerOn(config) {
+        const controller = document.getElementById(Static.#controller);
+
+        novemberizing.show(controller);
+
+        // FIELD 
+        controller.appendChild(novemberizing.dom.gen("div", { className: "row" }, 
+            novemberizing.dom.gen("div", { className: "col" }, [
+                novemberizing.dom.gen("div", { className: "row title" }, [
+                    novemberizing.dom.gen("div", { className: "col-6 text-center fw-bold"}, "Key"),
+                    novemberizing.dom.gen("div", { className: "col-6 text-center fw-bold"}, "Value")
+                ])
+            ])
+        ));
+        let body = null;
+        controller.appendChild(novemberizing.dom.gen("div", { className: "row" }, [
+            body = novemberizing.dom.gen("div", { className: "col", style: { maxHeight: '300px', overflowY: 'auto' } }, [])
+        ]));
+
+        function isPrimitive(v){ return (typeof v === "string" || typeof v === "number" || typeof v === "boolean")}
+
+        const padding = 5;
+        function configGen(config, depth = 0) {
+            if(typeof config === "object") {
+                if(config === null) return;
+                if(Array.isArray(config)) throw new Error();
+                for(const key of Object.keys(config)) {
+                    if(key.startsWith("_")) continue;
+                    if(Array.isArray(config[key])){
+                        if(config[key].length === 0) throw new Error();;
+                        for(let i = 1; i < config[key].length; i++) {
+                            body.appendChild(novemberizing.dom.gen("div", { className: "row body" }, [
+                                novemberizing.dom.gen("div", { className: "col-6", style: { paddingLeft: `${padding * (depth + 2)}px` } }, [
+                                    key,
+                                    novemberizing.dom.gen("sup", { style: { fontSize: ".3rem" } }, `${i - 1}`)
+                                ]),
+                                novemberizing.dom.gen("div", { className: "col-6" }, '')
+                            ]));
+                            configGen(config[key][i], depth + 2);
+                        }
+                        continue;
+                    }
+
+                    const node = config[key]._node;
+                    const value = config[key]._value;
+                    const children = config[key]._children;
+
+                    if(node) {
+                        if(isPrimitive(value)) {
+                            body.appendChild(novemberizing.dom.gen("div", { className: "row body" }, [
+                                novemberizing.dom.gen("div", { className: "col-6", style: { paddingLeft: `${padding * (depth + 1)}px` } }, key),
+                                novemberizing.dom.gen("div", { className: "col-6 text-truncate" }, value)
+                            ]));
+                            continue;
+                        } else {
+                            if(typeof value === "object") {
+                                if(value === null) continue;
+                                if(Array.isArray(value)) throw new Error();
+                                body.appendChild(novemberizing.dom.gen("div", { className: "row body" }, [
+                                    novemberizing.dom.gen("div", { className: "col-6", style: { paddingLeft: `${padding * (depth + 1)}px` } }, key),
+                                    novemberizing.dom.gen("div", { className: "col-6 text-truncate" }, '-')
+                                ]));
+                                configGen(value, depth + 1);
+                                continue;
+                            }
+                            throw new Error();
+                        }
+                    }
+                    throw new Error();  // ?
+                }
+            }
+        }
+
+        configGen(config);
+
+        
+
+        // novemberizing.show(controller);
+    }
 
     static async on(name) {
         const html = await fetch(`${name}/`);
@@ -41,6 +122,7 @@ export default class Static {
         Static.#config = await config.json();
 
         const frame = document.getElementById(Static.#view);
+        
 
         // TODO: ALL FILE PARSING
         const output = novemberizing.dom.render(await html.text(), Static.#config["index.html"], name, frame.contentWindow.document);
@@ -124,7 +206,11 @@ export default class Static {
 
             novemberizing.show(frame);
 
-            setTimeout(() => modal.hide(), 500);
+            setTimeout(() => modal.hide(), 500);    // DEBUG
+
+            Static.#controllerOn(Static.#config["index.html"]);
+
+            // setTimeout(() => modal.hide(), 500);
         }
 
         // 스크롤바가 2개 생긴다.

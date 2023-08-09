@@ -296,7 +296,7 @@ h6 {
     padding: 0px;
     margin: 0px;
     border: 1px solid #000000;
-    z-index: calc(var(--default-z-index) - 1);
+    z-index: calc(var(--default-z-index) + 2);
     opacity: .8;
     background-color: #ffffff;
     color: #808080;
@@ -342,7 +342,7 @@ h6 {
     display: none;
 }
 
-.novemberizing.static.controller.container .row .col
+.novemberizing.static.controller.container .row .col,
 .novemberizing.static.controller.container .row .col-4,
 .novemberizing.static.controller.container .row .col-6,
 .novemberizing.static.controller.container .row .col-8,
@@ -352,7 +352,7 @@ h6 {
     margin: 0px;
 }
 
-.novemberizing.static.controller.container .row .col button.btn-link
+.novemberizing.static.controller.container .row .col button.btn-link,
 .novemberizing.static.controller.container .row .col-4 button.btn-link,
 .novemberizing.static.controller.container .row .col-6 button.btn-link,
 .novemberizing.static.controller.container .row .col-8 button.btn-link,
@@ -362,7 +362,7 @@ h6 {
     color: #222222;
 }
 
-.novemberizing.static.controller.container .row .col button.btn-link:hover
+.novemberizing.static.controller.container .row .col button.btn-link:hover,
 .novemberizing.static.controller.container .row .col-4 button.btn-link:hover,
 .novemberizing.static.controller.container .row .col-6 button.btn-link:hover,
 .novemberizing.static.controller.container .row .col-8 button.btn-link:hover,
@@ -376,7 +376,17 @@ h6 {
     border-bottom: 1px solid #444444;
 }
 
-.novemberizing.static.controller.container .row.title .col
+.novemberizing.static.controller.container .row.body .col,
+.novemberizing.static.controller.container .row.body .col-4,
+.novemberizing.static.controller.container .row.body .col-6,
+.novemberizing.static.controller.container .row.body .col-8,
+.novemberizing.static.controller.container .row.body .col-12 {
+    padding: 4px;
+    margin: 0px;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.novemberizing.static.controller.container .row.title .col,
 .novemberizing.static.controller.container .row.title .col-4,
 .novemberizing.static.controller.container .row.title .col-6,
 .novemberizing.static.controller.container .row.title .col-8,
@@ -384,13 +394,14 @@ h6 {
     font-weight: bold;
     padding: 8px;
     margin: 0px;
+    border-bottom: 1px solid #7f7f7f;
 }
 
 .novemberizing.static.controller.container .row.footer {
     border-top: 1px solid #222222;
 }
 
-.novemberizing.static.controller.container .row.footer .col
+.novemberizing.static.controller.container .row.footer .col,
 .novemberizing.static.controller.container .row.footer .col-4,
 .novemberizing.static.controller.container .row.footer .col-6,
 .novemberizing.static.controller.container .row.footer .col-8,
@@ -475,3 +486,4 @@ input.novemberizing.static.controller-input.form-control:focus {
     padding: 0px;
     font-size: 1em;
 }
+
