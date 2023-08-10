@@ -1,0 +1,9 @@
+/node_modules
+/docs
+/jsdoc.json
+/.github
+/configure.json
+/webpack
+/theme
+/DEV.md
+/TODO.md
