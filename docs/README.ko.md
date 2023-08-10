@@ -19,9 +19,9 @@ NOVEMBERIZING'S STATIC
 
 ----
 
-> "Novemberizing static" is a project that creates a web service that allows users to create and download web pages they want just by setting them.
+> "Novemberizing static"은 사용자가 원하는 웹 페이지를 설정만으로 생성하여 다운로드를 받을 수 있는 웹 서비스를 만드는 프로젝트입니다.
 
-The goal of "Novemberizing static" is to make it easy for users to create the websites they want.
+"Novemberizing static"의 목표는 사용자가 원하는 웹 사이트를 쉽게 만들 수 있도록 하는 것입니다.
 
 ----
 
