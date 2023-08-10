@@ -37,7 +37,6 @@ export default class Controller {
     }
 
     static #toggle(e) {
-        console.log(e);
         let node = e.target;
         while(node && (node.nodeType !== node.ELEMENT_NODE || node.nodeName.toLowerCase() !== "div" || !node.classList.contains("row"))) {
             node = node.parentNode;
@@ -63,7 +62,7 @@ export default class Controller {
     }
 
     static #focus(e, item) {
-        console.log(e, item);
+        // TODO
     }
     
     static #change(e, item) {
@@ -75,7 +74,7 @@ export default class Controller {
                     // 수정을 하면 ...
                     node.parentNode.style.overflowWrap = "break-word";
                     node.nodeValue = e.target.value.replace(/ /g, "\u00A0");
-                } else {
+                } else if(node.nodeType !== node.COMMENT_NODE) {
                     const type = o.type;
                     // TODO: 링크를 찾고 링크면 변경한다.
                     if(type.startsWith("attr")) {
@@ -90,12 +89,13 @@ export default class Controller {
                             node.setAttribute(o.attr, v);
                         }
                     } else {
+                        console.log(o);
                         throw new Error();
                     }
-
                 }
             }
         } else {
+            console.log(e, item);
             throw new Error();
         }
     }
@@ -238,153 +238,4 @@ export default class Controller {
 
         novemberizing.dom.show(controller);
     }
-
-
-
-
-    // static #controllerOn(config) {
-    //     const controller = document.getElementById(Static.#controller);
-
-    //     novemberizing.show(controller);
-
-    //     // FIELD 
-    //     controller.appendChild(novemberizing.dom.gen("div", { className: "row" }, 
-    //         novemberizing.dom.gen("div", { className: "col" }, [
-    //             novemberizing.dom.gen("div", { className: "row title" }, [
-    //                 novemberizing.dom.gen("div", { className: "col-6 text-center fw-bold"}, "Key"),
-    //                 novemberizing.dom.gen("div", { className: "col-6 text-center fw-bold"}, "Value")
-    //             ])
-    //         ])
-    //     ));
-    //     let body = null;
-    //     controller.appendChild(novemberizing.dom.gen("div", { className: "row" }, [
-    //         body = novemberizing.dom.gen("div", { className: "col", style: { maxHeight: '300px', overflowY: 'auto' } }, [])
-    //     ]));
-
-    //     function isPrimitive(v){ return (typeof v === "string" || typeof v === "number" || typeof v === "boolean")}
-    //     function onClick(e) {
-    //         console.log(e);
-    //         let node = e.target.parentNode.parentNode;
-    //         console.log("begin", node);
-    //         const depth = node.getAttribute("data-nov-depth");
-    //         while((node = node.nextSibling) && node.getAttribute("data-nov-depth") !== depth) {
-    //             if(node.classList.contains("")) {
-
-    //             }
-    //             console.log(node);
-    //         }
-    //     }
-    //     function titleGen(key, type, depth, value, index = undefined) {
-    //         if(type === "array") {
-    //             return novemberizing.dom.gen("div", { "data-nov-depth": depth, className: "col-6", style: { paddingLeft: `${padding * (depth + 1 + (index !== undefined ? 1 : 0))}px`}}, [
-    //                 novemberizing.dom.gen("button", { type: "button", className: "btn btn-link", onClick}, [
-    //                     novemberizing.dom.gen("i", { className: 'fa-regular fa-folder-open fa-xs', style: { paddingRight: '5px' } }),
-    //                     key,
-    //                     index !== undefined ? novemberizing.dom.gen("sup", { style: { paddingLeft: '3px' } }, `${index}`) : null
-    //                 ])
-    //             ]);
-    //         } else if(type === "primitive") {
-    //             if(typeof value === "string") {
-    //                 return novemberizing.dom.gen("div", { "data-nov-depth": depth, className: "col-6", style: { paddingLeft: `${padding * (depth + 1 + (index !== undefined ? 1 : 0))}px`}}, [
-    //                     novemberizing.dom.gen("i", { className: 'fa-solid fa-font fa-xs', style: { paddingRight: '5px' } }),
-    //                     key
-    //                 ]);
-    //             } else if(typeof value === "number") {
-    //                 return novemberizing.dom.gen("div", { "data-nov-depth": depth, className: "col-6", style: { paddingLeft: `${padding * (depth + 1 + (index !== undefined ? 1 : 0))}px`}}, [
-    //                     novemberizing.dom.gen("i", { className: 'fa-solid fa-arrow-up-1-9 fa-xs', style: { paddingRight: '5px' } }),
-    //                     key
-    //                 ]);
-    //             } else if(typeof value === "boolean") {
-    //                 return novemberizing.dom.gen("div", { "data-nov-depth": depth, className: "col-6", style: { paddingLeft: `${padding * (depth + 1 + (index !== undefined ? 1 : 0))}px`}}, [
-    //                     novemberizing.dom.gen("i", { className: 'fa-solid fa-list-ol fa-xs', style: { paddingRight: '5px' } }),
-    //                     key
-    //                 ]);
-    //             } else {
-    //                 throw new Error();
-    //             }
-
-    //         } else if(type === "object") {
-    //             return novemberizing.dom.gen("div", { "data-nov-depth": depth, className: "col-6", style: { paddingLeft: `${padding * (depth + 1 + (index !== undefined ? 1 : 0))}px`}}, [
-    //                 novemberizing.dom.gen("button", { type: "button", className: "btn btn-link", onClick}, [
-    //                     novemberizing.dom.gen("i", { className: 'fa-regular fa-folder-open fa-xs', style: { paddingRight: '5px' } }),
-    //                     key
-    //                 ])
-    //             ]);
-    //         } else {
-    //             throw new Error();
-    //         }
-
-    //     }
-
-    //     const padding = 5;
-    //     function configGen(config, depth = 0) {
-    //         if(typeof config === "object") {
-    //             if(config === null) return;
-    //             if(Array.isArray(config)) throw new Error();
-    //             for(const key of Object.keys(config)) {
-    //                 if(key.startsWith("_")) continue;
-    //                 if(typeof config[key] === "object") {
-    //                     if(Array.isArray(config[key])){
-    //                         if(config[key].length === 0) throw new Error();;
-    //                         for(let i = 1; i < config[key].length; i++) {
-    //                             body.appendChild(novemberizing.dom.gen("div", { className: "row body" }, [
-    //                                 titleGen(key, "array", depth, null, i),
-    //                                 novemberizing.dom.gen("div", { className: "col-6" }, '')
-    //                             ]));
-    //                             configGen(config[key][i], depth + 2);
-    //                         }
-    //                         continue;
-    //                     }
-    
-    //                     const node = config[key]._node;
-    //                     const value = config[key]._value;
-    //                     const children = config[key]._children;
-    
-    //                     if(node) {
-    //                         if(isPrimitive(value)) {
-    //                             body.appendChild(novemberizing.dom.gen("div", { className: "row body" }, [
-    //                                 titleGen(key, "primitive", depth, value),
-    //                                 novemberizing.dom.gen("div", { className: "col-6 text-truncate" }, `${value}`)
-    //                             ]));
-    //                             continue;
-    //                         } else {
-    //                             if(typeof value === "object") {
-    //                                 if(value === null) continue;
-    //                                 if(Array.isArray(value)) throw new Error();
-    //                                 body.appendChild(novemberizing.dom.gen("div", { className: "row body" }, [
-    //                                     titleGen(key, "object", depth, value),
-    //                                     novemberizing.dom.gen("div", { className: "col-6 text-truncate" }, '-')
-    //                                 ]));
-    //                                 configGen(value, depth + 1);
-    //                                 continue;
-    //                             }
-    //                             throw new Error();
-    //                         }
-    //                     } else {
-    //                         // CHECK THIS
-    //                         body.appendChild(novemberizing.dom.gen("div", { className: "row body" }, [
-    //                             titleGen(key, "object", depth, config[key]),
-    //                             novemberizing.dom.gen("div", { className: "col-6 text-truncate" }, value)
-    //                         ]));
-    //                         configGen(config[key], depth + 1);
-    //                         console.log(1, node, key, value, children, config[key]);
-    //                         continue;
-    //                     }
-    //                 } else if(isPrimitive(config[key])) {
-    //                     body.appendChild(novemberizing.dom.gen("div", { className: "row body" }, [
-    //                         titleGen(key, "primitive", depth, config[key]),
-    //                         novemberizing.dom.gen("div", { className: "col-6 text-truncate" }, `${config[key]}`)
-    //                     ]));
-    //                     continue;
-    //                 } else {
-    //                     throw new Error();  // ?
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     configGen(config);
-
-    //     // novemberizing.show(controller);
-    // }
 }
