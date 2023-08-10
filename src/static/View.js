@@ -100,7 +100,7 @@ export default class View {
 
             setTimeout(() => loading.hide(), 500);    // DEBUG
 
-            controller.on(config, name);
+            controller.on(config, name, frame);
         }
 
         // 스크롤바가 2개 생긴다.

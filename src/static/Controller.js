@@ -9,6 +9,7 @@ export default class Controller {
 
     static #pad = 5;
     static #theme = null;
+    static #frame = null;
 
     static #itemGen(item) {
         if(novemberizing.dom.is.primitive(item) || novemberizing.dom.is.primitive(item._value)) {
@@ -59,6 +60,10 @@ export default class Controller {
 
         node = node.nextSibling;
         novemberizing.dom.toggle(node);
+    }
+
+    static #focus(e, item) {
+        console.log(e, item);
     }
     
     static #change(e, item) {
@@ -111,17 +116,14 @@ export default class Controller {
         let icon = null;
         let value = null;
         if(typeof item.value === "string") {
-            const dom = item.dom;
             icon = novemberizing.dom.gen("i", { className: "fa-solid fa-font fa-xs me-1"});
-            value = novemberizing.dom.gen("input", { onChange: e => Controller.#change(e, item), onKeyUp: e => Controller.#change(e, item), className: "form-control text-truncate", value: item.value })
+            value = novemberizing.dom.gen("input", { onFocus: e => Controller.#focus(e, item), onChange: e => Controller.#change(e, item), onKeyUp: e => Controller.#change(e, item), className: "form-control text-truncate", value: item.value })
         } else if(typeof item.value === "number") {
-            const dom = item.dom;
             icon = novemberizing.dom.gen("i", { className: "fa-solid fa-arrow-up-1-9 fa-xs me-1"});
-            value = novemberizing.dom.gen("input", { onChange: e => Controller.#change(e, item), onKeyUp: e => Controller.#change(e, item), className: "form-control text-truncate", value: item.value })
+            value = novemberizing.dom.gen("input", { onFocus: e => Controller.#focus(e, item), onChange: e => Controller.#change(e, item), onKeyUp: e => Controller.#change(e, item), className: "form-control text-truncate", value: item.value })
         } else if(typeof item.value === "boolean") {
-            const dom = item.dom;
             icon = novemberizing.dom.gen("i", { className: "fa-solid fa-list-ol fa-xs me-1"});
-            value = novemberizing.dom.gen("input", { onChange: e => Controller.#change(e, item), onKeyUp: e => Controller.#change(e, item), className: "form-control text-truncate", value: item.value })
+            value = novemberizing.dom.gen("input", { onFocus: e => Controller.#focus(e, item), onChange: e => Controller.#change(e, item), onKeyUp: e => Controller.#change(e, item), className: "form-control text-truncate", value: item.value })
         } else {
             throw new Error();
         }
@@ -214,9 +216,10 @@ export default class Controller {
         }
     }
 
-    static on(config, name) {
+    static on(config, name, frame) {
         const controller = document.getElementById(Controller.#id);
         Controller.#theme = name;
+        Controller.#frame = frame;
 
         // FIELD 
         controller.appendChild(novemberizing.dom.gen("div", { className: "row" }, 
