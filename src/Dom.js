@@ -1,9 +1,41 @@
 import xmldom from "@xmldom/xmldom";
-import Mustache from "mustache";
+import Is from "./dom/Is.js"
 
 export default class Dom {
+    static is = Is;
+
     static #parser = typeof DOMParser === "undefined" ? new xmldom.DOMParser() : new DOMParser();
     static #serializer = typeof XMLSerializer === "undefined" ? new xmldom.XMLSerializer() : new XMLSerializer();
+
+    static show(o) {
+        if(typeof o === "string") o = document.getElementById(o);
+
+        if(o.classList.contains("hide")) {
+            o.classList.replace("hide", "show")
+        } else {
+            o.classList.add("show");
+        }
+    }
+
+    static hide(o) {
+        if(typeof o === "string") o = document.getElementById(o);
+        if(o.classList.contains("show")) {
+            o.classList.replace("show", "hide")
+        } else {
+            o.classList.add("hide");
+        }
+    }
+
+    static toggle(o) {
+        if(typeof o === "string") o = document.getElementById(o);
+        if(o.classList.contains("show")) {
+            o.classList.replace("show", "hide")
+        } else if(o.classList.contains("hide")) {
+            o.classList.replace("hide", "show")
+        } else {
+            o.classList.add("hide");
+        }
+    }
 
     static gen(tag, properties, children) {
         // 1. CREATE ELEMENT
@@ -29,7 +61,7 @@ export default class Dom {
             if(!Array.isArray(children)) children = [ children ];
             // 3.2 APPENd CHILDREN
             for(const child of children) {
-                if(child) {
+                if(child !== null && child !==  undefined) {
                     if(typeof child === "string") {
                         element.appendChild(document.createTextNode(child));
                     } else {

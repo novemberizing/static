@@ -469,7 +469,7 @@ iframe.novemberizing.static.view.hide {
     top: 10px;
 }
 
-input.novemberizing.static.controller-input.form-control {
+.novemberizing.static.controller input.form-control {
     border-style: none;
     border-width: 0px;
     box-shadow: none;
@@ -478,7 +478,8 @@ input.novemberizing.static.controller-input.form-control {
     padding: 0px;
     font-size: 1em;
 }
-input.novemberizing.static.controller-input.form-control:focus {
+
+.novemberizing.static.controller input.form-control:focus {
     border-style: none;
     border-width: 0px;
     box-shadow: none;
